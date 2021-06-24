@@ -1,8 +1,12 @@
 .search-form
+  width: auto
   margin-top: 30px
-  width: 100%
   display: flex
   justify-content: center
+  // &.-shrinked
+  //   transform: translateY(-130px)
+  //   transition-duration: .4s
+  //   padding: 0px
   > .formlists
     width: auto
     height: auto
@@ -13,11 +17,19 @@
     background-color: $COLOR_WHITE
     border-radius: 80px
     border: 1px solid $COLOR_GREY
+    box-shadow: rgb(0 0 0 / 14%) 0px 1px 12px 1px
+    // &.-shrinked
+    //   width: 300px
+    //   padding: 0 12px
+    //   height: 48px
+    //   transition-duration: .4s
     > .line
       content: ""
       width: 1px
       height: 60%
       background-color: $COLOR_GREY
+      &.-hide
+        display: none
     > .formlist
       padding: 0
       height: 100%
@@ -30,8 +42,28 @@
         background-color: $COLOR_GREY
       &:hover:nth-of-type(4)
         background-color: yellow
-      & .-last
+      &.-last
         display: flex
+      &.-hide
+        display: none
+        transition-duration: 2s
+      &.shrinkedformlist
+        width: 100%
+        justify-content: space-between
+        > p
+          padding-right: 10px
+          font-size: 14px
+          font-weight: 400
+        >.shrinkedsubmitbtn
+          width: 32px
+          height: 32px
+          display: flex
+          justify-content: center
+          align-items: center
+          border-radius: 100px
+          border: 0px
+          background-color: rgb(255, 56, 92)
+          color: $COLOR_WHITE
       >.form
         padding-right: 0px
         display: flex
@@ -53,7 +85,7 @@
           width: 80%
         >.input
           width: 80%
-      >.submit
+      >.submitbtn
         height: 40px
         width: 40px
         margin-right: 10px
@@ -71,25 +103,42 @@
       >.formlist
         >.form
           padding: 16px 14px
-          
 
-@media (max-width: 750px)
+@media (min-width: 751px)
   .search-form
-    margin-top: 0px
-    >.formlists
-      width: 90%
-      >.line
-        display: none
-      >.formlist
-        display: none
-        &:nth-of-type(1)
-          display: flex
-          align-items: center
-          justify-content: flex-start
-          width: 100%
-          padding: 5px 40px
-          border-left: 0
-        >.form
-          padding: 0px
-        >.submit
+    &.-shrinked
+      transform: translateY(-130px)
+      transition-duration: .4s
+      padding: 0px
+    > .formlists
+      &.-shrinked
+        width: 300px
+        padding: 0 12px
+        height: 48px
+        transition-duration: .4s
+      > .line
+        &.-hide
           display: none
+      > .formlist
+        &.-last
+          display: flex
+        &.-hide
+          display: none
+          transition-duration: 2s
+        &.shrinkedformlist
+          width: 100%
+          justify-content: space-between
+          > p
+            padding-right: 10px
+            font-size: 14px
+            font-weight: 400
+          >.shrinkedsubmitbtn
+            width: 32px
+            height: 32px
+            display: flex
+            justify-content: center
+            align-items: center
+            border-radius: 100px
+            border: 0px
+            background-color: rgb(255, 56, 92)
+            color: $COLOR_WHITE

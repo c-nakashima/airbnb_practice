@@ -24,6 +24,51 @@
           <img class="splogo" src="./assets/logo_sp.png" alt="logo">
         </a>
       </h1>
+      <ul id="conditions" class="conditions">
+        <li class="condition">宿泊先</li>
+        <li class="condition">体験</li>
+        <li class="condition">オンライン体験</li>
+      </ul>
+      <div id="searchForm" class="search-form">
+        <ul id="formLists" class="formlists">
+          <li class="formlist extendedformlist">
+            <form class="form" action="#">
+              <label class="label" for="#">ロケーション</label>
+              <input class="input" type="text" placeholder="行き先はどちらですか？">
+            </form>
+          </li>
+          <div class="line"></div>
+          <li class="formlist extendedformlist">
+            <form class="form" action="#">
+              <label class="label" for="#">チェックイン</label>
+              <input class="input" type="text" placeholder="日付を入力">
+            </form>
+          </li>
+          <div class="line"></div>
+          <li class="formlist extendedformlist">
+            <form class="form" action="#">
+              <label class="label" for="#">チェックアウト</label>
+              <input class="input" type="text" placeholder="日付を入力">
+            </form>
+          </li>
+          <div class="line"></div>
+          <li class="formlist extendedformlist -last">
+            <form class="form" action="#">
+              <label class="label" for="#">人数</label>
+              <input class="input" type="text" placeholder="ゲスト数を入力">
+            </form>
+            <button class="submitbtn" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </li>
+          <li id="shrinkedFormList" class="formlist -hide shrinkedformlist">
+            <p>検索をはじめる</p>
+            <div class="shrinkedsubmitbtn" type="submit">
+              <i class="fas fa-search"></i>
+            </div>
+          </li>
+        </ul>
+      </div>
       <div class="rightarea">
         <a class="host">ホストになる</a>
         <button class="globe">
@@ -51,45 +96,6 @@
   <main>
     <section id="Keyvisual">
       <div class="container">
-        <ul class="conditions">
-          <li class="condition">宿泊先</li>
-          <li class="condition">体験</li>
-          <li class="condition">オンライン体験</li>
-        </ul>
-        <div class="search-form">
-          <ul class="formlists">
-            <li class="formlist">
-              <form class="form" action="#">
-                <label class="label" for="#">ロケーション</label>
-                <input class="input" type="text" placeholder="行き先はどちらですか？">
-              </form>
-            </li>
-            <div class="line"></div>
-            <li class="formlist">
-              <form class="form" action="#">
-                <label class="label" for="#">チェックイン</label>
-                <input class="input" type="text" placeholder="日付を入力">
-              </form>
-            </li>
-            <div class="line"></div>
-            <li class="formlist">
-              <form class="form" action="#">
-                <label class="label" for="#">チェックアウト</label>
-                <input class="input" type="text" placeholder="日付を入力">
-              </form>
-            </li>
-            <div class="line"></div>
-            <li class="formlist -last">
-              <form class="form" action="#">
-                <label class="label" for="#">人数</label>
-                <input class="input" type="text" placeholder="ゲスト数を入力">
-              </form>
-              <button class="submit" type="submit">
-                <i class="fas fa-search"></i>
-              </button>
-            </li>
-          </ul>
-        </div>
         <div class="catchcopy">
           <div class="copycontainer">
             <p class="maincopy">自然を近くに<br>感じる旅</p>

@@ -4,15 +4,16 @@
   border-top: 2px solid $COLOR_GREY
   >.container
     >.footernav
-      display: flex
-      justify-content: space-between
-      margin-bottom: 48px
       >.categories
-        width: 25%
-        padding-left: 10px
-        &:nth-last-of-type()
-          padding-left: 0px
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        margin-bottom: 48px
         >.category
+          width: 25%
+          padding-left: 10px
+          &:nth-last-of-type()
+            padding-left: 0px
           >.categorytitle
             font-size: 12px
             font-weight: 600
@@ -72,11 +73,11 @@
   #Footer
     >.container
       >.footernav
-        flex-direction: column
-        flex-wrap: wrap
         >.categories
-          width: 100%
+          flex-direction: column
+          flex-wrap: wrap
           >.category
+            width: 100%
             padding: 24px 0
             border-bottom: 2px solid $COLOR_GREY
             &:nth-of-type(4)
