@@ -1,0 +1,1 @@
+const headerElem=document.getElementById("header");console.log(headerElem);const windowHeight=$(window).height();$(window).scroll((function(){$(this).scrollTop()>$("header").offset().top-windowHeight&&0!==$("header").offset().top?$("header").addClass("-bgwhite"):$("header").removeClass("-bgwhite")}));
