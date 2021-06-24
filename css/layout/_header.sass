@@ -1,0 +1,50 @@
+#header
+  position: fixed
+  box-sizing: border-box
+  left: 0
+  right: 0
+  top: 0
+  z-index: 10
+  font-size: $FONTSIZE_MENU
+  >.container
+    height: 80px
+    padding: 0 80px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    >.rightarea
+      display: flex
+      align-items: center
+      >.host
+        margin-right: 10px
+      >.account
+        width: 70px
+        padding: 5px 5px 5px 12px
+        margin-left: 10px
+        display: flex
+        align-items: center
+        justify-content: center
+        background-color: $COLOR_WHITE
+        border-radius: 25px
+        >.menu
+          width: 16px
+          height: 14px
+          padding-right: 10px
+          display: flex
+          flex-direction: column
+          justify-content: space-between
+
+@media (max-width: 1120px)
+  #header
+    >.container
+      padding: 0 40px
+
+@media (max-width: 950px)
+  #header
+    >.container
+      >.conditions
+        margin-top: 100px
+
+@media (max-width: 750px)
+  #header
+    display: none

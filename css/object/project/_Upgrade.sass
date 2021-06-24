@@ -1,0 +1,59 @@
+#Upgrade
+  padding-bottom: 40px
+  >.container
+    >.content-image
+      background: url(../assets/upgrade_bg.jpg) center
+      background-size: cover
+      background-repeat: no-repeat
+      >.textgroup
+        >.text
+          color: $COLOR_BLACK
+          >.maincopy
+            >.image180
+              width: 173px
+        >.btn-element
+          color: $COLOR_WHITE
+          background-color: $COLOR_BLACK
+
+@media (max-width: 750px)
+  #Upgrade
+    >.container
+      >.content-image
+        background: none
+        border-radius: 20px
+        >.textgroup
+          position: absolute
+          top: 0
+          left: 0
+          right: 0
+          padding: 60px 40px 40px 40px
+          justify-content: flex-start
+          align-items: center
+          >.text
+            width: 100%
+            text-align: center
+        >.image
+          width: 100%
+          position: absolute
+          top: 0
+          z-index: -1
+          display: block
+          border-radius: 20px
+
+@media (max-width: 375px)
+  #Upgrade
+    >.container
+      >.content-image
+        >.textgroup
+          padding: 25px
+          justify-content: flex-start
+          align-items: center
+          >.text
+            >.maincopy
+              font-size: 20px
+              line-height: 1.2
+              margin-bottom: 10px
+            >.subcopy
+              font-size: 14px
+              line-height: 1.2
+              margin-bottom: 10px

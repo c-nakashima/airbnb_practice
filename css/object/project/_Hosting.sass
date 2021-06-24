@@ -1,0 +1,58 @@
+#Hosting
+  >.container
+    >.content-image
+      // height: 482px
+      background: url(../assets/hosting_bg.jpg) center
+      background-size: cover
+      background-repeat: no-repeat
+      // border-radius: 20px
+      >.textgroup
+        >.text
+          color: $COLOR_WHITE
+        >.btn-element
+          color: $COLOR_BLACK
+          background-color: $COLOR_WHITE
+      >.image
+        display: none
+
+@media (max-width: 750px)
+  #Hosting
+    >.container
+      >.content-image
+        background: none
+        >.textgroup
+          position: absolute
+          top: 0
+          left: 0
+          right: 0
+          padding: 60px 40px 40px 40px
+          justify-content: flex-start
+          align-items: center
+          >.text
+            width: 100%
+            text-align: center
+        >.image
+          width: 100%
+          position: absolute
+          top: 0
+          z-index: -1
+          display: block
+          border-radius: 20px
+
+@media (max-width: 375px)
+  #Hosting
+    >.container
+      >.content-image
+        >.textgroup
+          padding: 25px
+          justify-content: flex-start
+          align-items: center
+          >.text
+            >.maincopy
+              font-size: 20px
+              line-height: 1.2
+              margin-bottom: 10px
+            >.subcopy
+              font-size: 14px
+              line-height: 1.2
+              margin-bottom: 10px

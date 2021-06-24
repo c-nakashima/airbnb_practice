@@ -1,0 +1,74 @@
+#Keyvisual
+  margin-top: -80px
+  padding-top: 80px
+  // position: absolute
+  // z-index: -1
+  // top: 0
+  width: 100%
+  background: url(../assets/keyvisual_pc.jpg) center
+  background-size: cover
+  .container
+    // position: relative
+    .conditions
+      width: 100%
+      // position: absolute
+      // margin-top: 24px
+      margin-top: 24px
+      display: flex
+      justify-content: center
+      align-items: center
+      .condition
+        padding: 10px 16px
+        display: flex
+        justify-content: center
+        align-items: center
+        &:hover
+          cursor: pointer
+    .images
+      position: absolute
+      top: 0
+      z-index: -10
+      .image
+        width: 100%
+        height: auto
+    .catchcopy
+      padding: 80px 0
+      .copycontainer
+        >.maincopy
+          width: 42%
+          margin-bottom: 18px
+          font-size: 48px
+          font-weight: 600
+          line-height: 1.2
+        >.subcopy
+          font-size: 18px
+          margin-bottom: 18px
+        >.btn-element
+          // padding: 6px 14px
+          // font-size: $FONTSIZE_MENU
+          background-color: $COLOR_BLACK
+          color: $COLOR_WHITE
+          // border-radius: 8px
+
+
+@media (max-width: 1120px)
+  #Keyvisual
+    .container
+      .conditions
+        margin-top: 60px
+      .catchcopy
+        padding: 120px 0px
+
+@media (max-width: 750px)
+  #Keyvisual
+    margin-top: 0px
+    padding-top: 30px
+    .container
+      .conditions
+        display: none
+      .catchcopy
+        padding: 90px 0px 300px
+        .copycontainer
+          >.maincopy
+            font-size: 45px
+            width: 90%

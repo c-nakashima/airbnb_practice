@@ -1,0 +1,49 @@
+.content-list
+  >.lists
+    display: flex
+    >.list
+      width: 25%
+      padding: 8px
+      &:nth-of-type(1)
+        padding-left: 0
+      &:nth-last-of-type()
+        padding-right: 0
+      >.image
+        width: 100%
+        border-radius: 10px
+        margin-bottom: 10px
+      >.text
+        font-size: 18px
+        font-weight: 600
+  >.nextbtn
+    display: none
+
+@media (max-width: 1120px)
+  .content-list
+    >.lists
+      // position: relative
+      overflow: scroll
+      >.list
+        width: 32%
+        min-width: 32%
+  .content-list
+    >.nextbtn
+      display: block
+      position: absolute
+      top: 50%
+      right: 20px
+      width: 40px
+      height: 40px
+      border-radius: 100px
+      background-color: $COLOR_WHITE
+      box-shadow: rgb(0 0 0 / 14%) 0px 1px 1px 1px
+
+@media (max-width: 750px)
+  .content-list
+    >.lists
+      overflow: scroll
+      >.list
+        padding: 6px
+        min-width: 272px
+    >.nextbtn
+      display: none

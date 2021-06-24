@@ -1,0 +1,95 @@
+.search-form
+  margin-top: 30px
+  width: 100%
+  display: flex
+  justify-content: center
+  > .formlists
+    width: auto
+    height: auto
+    padding: 0px
+    display: flex
+    justify-content: center
+    align-items: center
+    background-color: $COLOR_WHITE
+    border-radius: 80px
+    border: 1px solid $COLOR_GREY
+    > .line
+      content: ""
+      width: 1px
+      height: 60%
+      background-color: $COLOR_GREY
+    > .formlist
+      padding: 0
+      height: 100%
+      display: flex
+      justify-content: center
+      align-items: center
+      background-color: $COLOR_WHITE
+      border-radius: 80px
+      &:hover
+        background-color: $COLOR_GREY
+      &:hover:nth-of-type(4)
+        background-color: yellow
+      & .-last
+        display: flex
+      >.form
+        padding-right: 0px
+        display: flex
+        justify-content: center
+        flex-direction: column
+        padding: 16px 20px
+        &:hover
+          cursor: pointer
+        > .label
+          display: inline
+          font-size: 12px
+        > .input
+          padding-top: 4px
+          background-color: transparent
+          border: 0
+          color: $COLOR_GREY
+      &:nth-of-type(4)
+        >.label
+          width: 80%
+        >.input
+          width: 80%
+      >.submit
+        height: 40px
+        width: 40px
+        margin-right: 10px
+        border-radius: 100px
+        border: 0px
+        background-color: rgb(255, 56, 92)
+        color: $COLOR_WHITE
+
+@media (max-width: 1120px)
+  .search-form
+    width: 100%
+    // margin-top: 40px
+    >.formlists
+      width: 80%
+      >.formlist
+        >.form
+          padding: 16px 14px
+          
+
+@media (max-width: 750px)
+  .search-form
+    margin-top: 0px
+    >.formlists
+      width: 90%
+      >.line
+        display: none
+      >.formlist
+        display: none
+        &:nth-of-type(1)
+          display: flex
+          align-items: center
+          justify-content: flex-start
+          width: 100%
+          padding: 5px 40px
+          border-left: 0
+        >.form
+          padding: 0px
+        >.submit
+          display: none
