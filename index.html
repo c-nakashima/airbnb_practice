@@ -35,7 +35,7 @@
         <li class="condition">オンライン体験</li>
       </ul>
       <div id="searchForm" class="search-form">
-        <ul id="formLists" class="formlists">
+        <ul id="formLists" class="formlists destination" data-selected="true">
           <li class="formlist extendedformlist">
             <form class="form" action="#">
               <label class="label" for="#">ロケーション</label>
@@ -67,6 +67,30 @@
             </button>
           </li>
           <li id="shrinkedFormList" class="formlist -hide shrinkedformlist">
+            <p>検索をはじめる</p>
+            <div class="shrinkedsubmitbtn" type="submit">
+              <i class="fas fa-search"></i>
+            </div>
+          </li>
+        </ul>
+        <ul id="experienceFormLists" class="experienceformlists formlists" data-selected="false">
+          <li class="formlist extendedformlist">
+            <form class="form" action="#">
+              <label class="label" for="#">ロケーション</label>
+              <input class="input" type="text" placeholder="行き先はどちらですか？">
+            </form>
+          </li>
+          <div class="line"></div>
+          <li class="formlist extendedformlist -last">
+            <form class="form" action="#">
+              <label class="label" for="#">日付</label>
+              <input class="input" type="text" placeholder="ゲスト数を入力">
+            </form>
+            <button class="submitbtn" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </li>
+          <li class="formlist -hide shrinkedformlist">
             <p>検索をはじめる</p>
             <div class="shrinkedsubmitbtn" type="submit">
               <i class="fas fa-search"></i>
