@@ -204,7 +204,7 @@ input[type=text]:focus {
 #Footer {
   padding: 48px 0;
   background-color: #F7F7F7;
-  border-top: 2px solid #eee;
+  border-top: 2px solid #EBEBEB;
 }
 #Footer > .container > .footernav > .categories {
   display: flex;
@@ -235,7 +235,7 @@ input[type=text]:focus {
   padding-top: 20px;
   display: flex;
   justify-content: space-between;
-  border-top: 2px solid #eee;
+  border-top: 2px solid #EBEBEB;
 }
 #Footer > .container > .footerbottom > .rightcontents > .rightcontent {
   margin-top: 6px;
@@ -297,7 +297,7 @@ input[type=text]:focus {
   #Footer > .container > .footernav > .categories > .category {
     width: 100%;
     padding: 24px 0;
-    border-bottom: 2px solid #eee;
+    border-bottom: 2px solid #EBEBEB;
   }
   #Footer > .container > .footernav > .categories > .category:nth-of-type(4) {
     padding-bottom: 0;
@@ -394,14 +394,14 @@ input[type=text]:focus {
   align-items: center;
   background-color: #FFFFFF;
   border-radius: 80px;
-  border: 1px solid #eee;
+  border: 1px solid #EBEBEB;
   box-shadow: rgba(0, 0, 0, 0.14) 0px 1px 12px 1px;
 }
 .search-form > .formlists > .line {
   content: "";
   width: 1px;
   height: 60%;
-  background-color: #eee;
+  background-color: #EBEBEB;
 }
 .search-form > .formlists > .line.-hide {
   display: none;
@@ -422,7 +422,7 @@ input[type=text]:focus {
   border-radius: 80px;
 }
 .search-form > .formlists > .formlist:hover {
-  background-color: #eee;
+  background-color: #EBEBEB;
 }
 .search-form > .formlists > .formlist:hover:nth-of-type(4) {
   background-color: yellow;
@@ -732,27 +732,25 @@ input[type=text]:focus {
   margin: 0 auto;
   color: #222222;
 }
+.calendar-form > .calenderheadergroup {
+  display: flex;
+  align-items: center;
+  padding: 0px 0 26px 0;
+}
 .calendar-form > .calenderheadergroup > .calendarheader {
   width: 100%;
   text-align: center;
   font-size: 16px;
 }
-.calendar-form > .calenderheadergroup > .calendarheader > .movemonthbtns {
-  position: relative;
-}
-.calendar-form > .calenderheadergroup > .calendarheader > .movemonthbtns > button.movemonthbtn {
+.calendar-form > .calenderheadergroup > .movemonthbtn {
   cursor: pointer;
-  background: #B78D4A;
-  color: #fff;
-  border: 1px solid #B78D4A;
-  border-radius: 4px;
-  font-size: 1rem;
-  padding: 0.5rem 2rem;
-  margin: 1rem 0;
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+  border-radius: 32px;
 }
-.calendar-form > .calenderheadergroup > .calendarheader > .movemonthbtns > button.movemonthbtn:hover {
-  background-color: #D4BB92;
-  border-color: #D4BB92;
+.calendar-form > .calenderheadergroup > .movemonthbtn:hover {
+  background-color: #F7F7F7;
 }
 .calendar-form > .calendar {
   width: 100%;
@@ -761,17 +759,22 @@ input[type=text]:focus {
 .calendar-form > .calendar > table {
   width: 100%;
 }
+.calendar-form > .calendar > table > tbody > tr > th {
+  font-size: 12px;
+  padding-bottom: 8px;
+}
 .calendar-form > .calendar > table > tbody > tr > td {
   width: 47px;
   height: 47px;
   align-items: center;
   line-height: 47px;
+  font-size: 14px;
 }
 .calendar-form > .calendar > table > tbody > tr > td.-disabled {
   visibility: hidden;
 }
 .calendar-form > .calendar > table > tbody > tr > td.-previous {
-  color: green;
+  color: #DADADA;
 }
 
 #Keyvisual {
@@ -1102,7 +1105,7 @@ input[type=text]:focus {
   padding: 4px 20px;
 }
 #LocationWindow > ul > li:hover {
-  background-color: #eee;
+  background-color: #EBEBEB;
 }
 #LocationWindow > ul > li > img {
   width: 60px;
@@ -1120,11 +1123,11 @@ input[type=text]:focus {
   }
 }
 #CheckinWindow {
+  width: 100%;
   position: absolute;
   top: 80px;
   left: 0px;
   right: 0px;
-  width: 100%;
 }
 #CheckinWindow[data-open=true] {
   display: flex;
@@ -1138,7 +1141,7 @@ input[type=text]:focus {
   padding: 4px 20px;
 }
 #CheckinWindow > ul > li:hover {
-  background-color: #eee;
+  background-color: #EBEBEB;
 }
 #CheckinWindow > ul > li > img {
   width: 60px;

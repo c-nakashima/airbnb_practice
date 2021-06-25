@@ -4,24 +4,21 @@
   margin: 0 auto
   color: $COLOR_BLACK
   >.calenderheadergroup
+    display: flex
+    align-items: center
+    padding: 0px 0 26px 0
     >.calendarheader
       width: 100%
       text-align: center
       font-size: 16px
-      >.movemonthbtns
-        position: relative
-        >button.movemonthbtn
-          cursor: pointer
-          background: #B78D4A
-          color: #fff
-          border: 1px solid #B78D4A
-          border-radius: 4px
-          font-size: 1rem
-          padding: 0.5rem 2rem
-          margin: 1rem 0
-          &:hover
-            background-color: #D4BB92
-            border-color: #D4BB92
+    >.movemonthbtn
+      cursor: pointer
+      width: 32px
+      height: 32px
+      font-size: 20px
+      border-radius: 32px
+      &:hover
+        background-color: $COLOR_LIGHTGREY
   >.calendar
     width: 100%
     text-align: center
@@ -29,15 +26,16 @@
       width: 100%
       >tbody
         >tr
+          >th
+            font-size: 12px
+            padding-bottom: 8px
           >td
             width: 47px
             height: 47px
             align-items: center
             line-height: 47px
-            // display: flex
-            // justify-content: center
-            // align-items: center
+            font-size: 14px
             &.-disabled
               visibility: hidden
             &.-previous
-              color: green
+              color: $COLOR_DARKGREY

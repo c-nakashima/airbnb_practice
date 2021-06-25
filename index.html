@@ -55,27 +55,27 @@
             <form id="checkinForm" class="form" action="#">
               <label class="label" for="#">チェックイン</label>
               <input class="input" type="text" placeholder="日付を入力">
+
               <div id="CheckinWindow" class="checkinwindow form-popup-window" data-open="false">
                 <div class="calendar-form wrapper">
                   <div class="calenderheadergroup">
-                    <button id="currentMonthPrevBtn" class="prevbtn">‹</button>
+                    <button id="currentMonthPrevBtn" class="prevbtn movemonthbtn">‹</button>
                     <p id="calendarHeader" class="calendarheader"></p>
-                    <button id="currentMonthNextBtn" class="nextbtn">›</button>
+                    <button id="currentMonthNextBtn" class="nextbtn movemonthbtn">›</button>
                   </div>
                   <div id="calendar" class="calendar"></div>
                 </div>
-                <div class="calendar-form wrapper">
-                  <!-- xxxx年xx月を表示 -->
-                  <div class="calenderheadergroup">
-                    <button id="nextMonthPrevBtn" class="prevbtn">‹</button>
-                    <p id="nextCalendarHeader" class="calendarheader nextcalendarheader"></p>
-                    <button id="nextMonthNextBtn" class="nextbtn">›</button>
-                  </div>
 
-                  <!-- カレンダー -->
+                <div class="calendar-form wrapper">
+                  <div class="calenderheadergroup">
+                    <button id="nextMonthPrevBtn" class="prevbtn movemonthbtn">‹</button>
+                    <p id="nextCalendarHeader" class="calendarheader nextcalendarheader"></p>
+                    <button id="nextMonthNextBtn" class="nextbtn movemonthbtn">›</button>
+                  </div>
                   <div id="nextMonthCalendar" class="calendar"></div>
                 </div>
               </div>
+
             </form>
           </li>
           <div class="line"></div>
