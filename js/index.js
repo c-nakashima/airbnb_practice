@@ -14,7 +14,6 @@ const searchFormLines = document.getElementsByClassName('line');
 
 function shrinkSearchForm() {
   $('header').addClass('-bgwhite');
-  console.log(extendedFormLists);
   Array.from(extendedFormLists).forEach((extendedFormList) => {
     extendedFormList.classList.add("-hide");
   });
@@ -66,25 +65,14 @@ function setClickedFormStyle() {
   Array.from(formLists).forEach(formList => {
     formList.addEventListener('click', (e) => {
       Array.from(formLists).forEach(formList => {
-        formList.style.backgroundColor = "transparent";
-        formList.style.boxShadow = "none"
+        formList.classList.remove("-focused");
       })
-      formList.style.backgroundColor = "#FFF";
-      formList.style.boxShadow = "rgb(0 0 0 / 14%) 0px 1px 12px 1px";
+      formList.classList.add("-focused");
     })
   })
 }
 
 //open / close popp window
-
-// document.addEventListener('click',(e)=>{
-//   if (e.target.closest('#locationForm')) {
-//     locationWindow.setAttribute('data-open', 'true');
-//   }else{
-//     locationWindow.setAttribute('data-open', 'false');
-//   }
-// })
-
 function toggleFormWindow(parentNodeSelector, targetElem) {
   document.addEventListener('click', (e) => {
     if (e.target.closest(parentNodeSelector)) {
@@ -128,8 +116,6 @@ window.onload = function () {
   showNextMonth(nextMonthNextBtn, 'nextMonthCalendar', 'nextCalendarHeader');
 };
 
-
-
 // show prev month button
 function showPrevMonth(targetBtnElem, targetCalendarId, targetHeaderId) {
   targetBtnElem.addEventListener('click', () => {
@@ -139,8 +125,7 @@ function showPrevMonth(targetBtnElem, targetCalendarId, targetHeaderId) {
       showNextMonthDate.setMonth(showNextMonthDate.getMonth() - 1);
       showCalendar(showNextMonthDate, 'nextMonthCalendar', 'nextCalendarHeader');
     }
-  }
-  )
+  })
 }
 
 // show next month button
@@ -151,7 +136,7 @@ function showNextMonth(targetBtnElem, targetCalendarId, targetHeaderId) {
     if (targetBtnElem === nextMonthNextBtn) {
       showDate.setMonth(showDate.getMonth() + 1);
       showCalendar(showDate, 'calendar', 'calendarHeader');
-    } 
+    }
   })
 }
 

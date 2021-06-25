@@ -434,6 +434,10 @@ input[type=text]:focus {
   display: none;
   transition-duration: 2s;
 }
+.search-form > .formlists > .formlist.-focused {
+  background-color: #FFFFFF;
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 1px 12px 1px;
+}
 .search-form > .formlists > .formlist.shrinkedformlist {
   width: 300px;
   padding: 0 10px;
@@ -723,17 +727,15 @@ input[type=text]:focus {
 }
 
 .calendar-form {
-  max-width: 600px;
+  width: 390px;
+  padding: 0 27px;
   margin: 0 auto;
   color: #222222;
 }
-.calendar-form > .calenderheadergroup {
-  display: flex;
-}
 .calendar-form > .calenderheadergroup > .calendarheader {
-  text-align: center;
-  font-size: 24px;
   width: 100%;
+  text-align: center;
+  font-size: 16px;
 }
 .calendar-form > .calenderheadergroup > .calendarheader > .movemonthbtns {
   position: relative;
@@ -755,6 +757,15 @@ input[type=text]:focus {
 .calendar-form > .calendar {
   width: 100%;
   text-align: center;
+}
+.calendar-form > .calendar > table {
+  width: 100%;
+}
+.calendar-form > .calendar > table > tbody > tr > td {
+  width: 47px;
+  height: 47px;
+  align-items: center;
+  line-height: 47px;
 }
 .calendar-form > .calendar > table > tbody > tr > td.-disabled {
   visibility: hidden;

@@ -1,13 +1,13 @@
 .calendar-form
-  max-width: 600px
+  width: 390px
+  padding: 0 27px
   margin: 0 auto
   color: $COLOR_BLACK
   >.calenderheadergroup
-    display: flex
     >.calendarheader
-      text-align: center
-      font-size: 24px
       width: 100%
+      text-align: center
+      font-size: 16px
       >.movemonthbtns
         position: relative
         >button.movemonthbtn
@@ -26,9 +26,17 @@
     width: 100%
     text-align: center
     >table
+      width: 100%
       >tbody
         >tr
           >td
+            width: 47px
+            height: 47px
+            align-items: center
+            line-height: 47px
+            // display: flex
+            // justify-content: center
+            // align-items: center
             &.-disabled
               visibility: hidden
             &.-previous
