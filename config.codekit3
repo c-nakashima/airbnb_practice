@@ -335,6 +335,19 @@
       "q" : 100,
       "rq" : 75
     },
+    "\/assets\/location.png" : {
+      "ft" : 32768,
+      "iS" : 10016,
+      "oA" : 0,
+      "oAP" : "\/assets\/location.png",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "oT" : 1,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
     "\/assets\/logo_sp.png" : {
       "ft" : 32768,
       "iS" : 16057,
@@ -631,6 +644,20 @@
       "ma" : 0,
       "oA" : 1,
       "oAP" : "\/css\/object\/project\/_Keyvisual.css",
+      "oF" : 0,
+      "oS" : 0,
+      "pg" : 0,
+      "sct" : 0
+    },
+    "\/css\/object\/project\/_Locationwindow.sass" : {
+      "aP" : 0,
+      "bl" : 0,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 2,
+      "ma" : 0,
+      "oA" : 1,
+      "oAP" : "\/css\/object\/project\/_Locationwindow.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0,

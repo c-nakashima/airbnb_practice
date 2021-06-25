@@ -13,7 +13,7 @@
     background-color: $COLOR_WHITE
     border-radius: 80px
     border: 1px solid $COLOR_GREY
-    box-shadow: rgb(0 0 0 / 14%) 0px 1px 12px 1px
+    box-shadow: $SHADOW_NORMAL
     > .line
       content: ""
       width: 1px
@@ -61,6 +61,7 @@
           background-color: rgb(255, 56, 92)
           color: $COLOR_WHITE
       >.form
+        position: relative
         padding-right: 0px
         display: flex
         justify-content: center
@@ -72,10 +73,11 @@
           display: inline
           font-size: 12px
         > .input
+          width: 100%
           padding-top: 4px
           background-color: transparent
           border: 0
-          color: $COLOR_GREY
+          color: $COLOR_BLACK
       &:nth-of-type(4)
         >.label
           width: 80%

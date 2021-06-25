@@ -1,0 +1,31 @@
+#LocationWindow
+  // display: block
+  position: absolute
+  top: 80px
+  left: 0px
+  width: 400px
+  padding: 30px 0px
+  border-radius: 18px
+  background-color: $COLOR_WHITE
+  box-shadow: $SHADOW_NORMAL
+  z-index: 10
+  &[data-open='true']
+    display: block
+  &[data-open='false']
+    display: none
+  // &.-hide
+  //   display: none
+  >ul
+    >li
+      display: flex
+      align-items: center
+      padding: 4px 20px
+      &:hover
+        background-color: $COLOR_GREY
+      >img
+        width: 60px
+        height: 60px
+        border-radius: 10px
+        margin-right: 20px
+      >p
+        font-size: 16px

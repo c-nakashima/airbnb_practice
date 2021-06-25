@@ -6,8 +6,10 @@ const searchForm = document.getElementById('searchForm');
 const extendedFormLists = document.getElementsByClassName('extendedformlist');
 const shrinkedFormLists = document.getElementsByClassName('shrinkedformlist');
 const conditions = document.getElementById('conditions');
-const formLists = document.getElementById('formLists');
+const formLists = document.getElementsByClassName('formlist')
+const hotelFormLists = document.getElementById('hotelFormLists');
 const experienceFormLists = document.getElementById('experienceFormLists');
+const locationForm = document.getElementById('locationForm');
 const searchFormLines = document.getElementsByClassName('line');
 
 function shrinkSearchForm() {
@@ -23,10 +25,10 @@ function shrinkSearchForm() {
     shrinkedFormList.classList.remove("-hide");
     shrinkedFormList.classList.add("-shrinked");
   });
-  
+
   searchForm.classList.add("-shrinked");
   conditions.classList.add("-hide");
-  formLists.classList.add('-shrinked');
+  hotelFormLists.classList.add('-shrinked');
   experienceFormLists.classList.add('-shrinked');
   header.classList.add('-shrinked');
 }
@@ -44,7 +46,7 @@ function extendSearchForm() {
     shrinkedFormList.classList.remove("-shrinked");
   });
   searchForm.classList.remove("-shrinked");
-  formLists.classList.remove('-shrinked');
+  hotelFormLists.classList.remove('-shrinked');
   experienceFormLists.classList.remove('-shrinked');
   header.classList.remove('-shrinked');
   if (windowWidth > 750) {
@@ -58,38 +60,34 @@ $(window).scroll(function () {
   scrollPosition > $('header').offset().top - windowHeight && $('header').offset().top !== 0 ? shrinkSearchForm() : extendSearchForm()
 });
 
-// function drawFormLists(formListsNum, labelNames, placeholderNames) {
-//   for (let i = 0; i < formListsNum; i++) {
-//     const li = document.createElement('li');
-//     const form = document.createElement('form');
-//     const label = document.createElement('label');
-//     const input = document.createElement('input');
-//     li.setAttribute('id', 'formList');
-//     li.setAttribute('class', 'formlist  extendedformlist');
-//     form.setAttribute('class', 'form')
-//     label.setAttribute('class', 'label');
-//     input.setAttribute('class', 'input');
-//     input.setAttribute('placeholder', placeholderNames[i]);
-//     label.innerText = labelNames[i];
-//     li.appendChild(form);
-//     form.appendChild(label);
-//     form.appendChild(input);
-//     if (i === formListNum - 1) {
-//       li.addClass('-last');
-//       li.insertAdjacentElement(
-//         'beforeend',
-//         '<button class="submitbtn" type="submit"><i class= "fas fa-search" ></i></button >')
-//     }
-//     formLists.appendChild(li);
-//   }
-//   console.log('formLists',formLists)
-//   formLists.insertAdjacentElement(
-//     'beforeend',
-//     '<li id="shrinkedFormList" class="formlist -hide shrinkedformlist"><p>検索をはじめる</p><div class="shrinkedsubmitbtn" type="submit"><i class="fas fa-search"></i></div></li>'
-//     )
-// }
 
-// const hotelFormNum = 4;
-// const hotelFormLabelNames = ['ロケーション','チェックイン','チェックアウト','人数']
-// const hotelFormPlaceholderNames = ['行き先はどちらですか','日付を入力','日付を入力','ゲスト数を入力']
-// drawFormLists();
+//set clicked form style
+function setClickedFormStyle() {
+  Array.from(formLists).forEach(formList => {
+    formList.addEventListener('click', (e) => {
+      Array.from(formLists).forEach(formList => {
+        formList.style.backgroundColor = "transparent";
+        formList.style.boxShadow = "none"
+      })
+      formList.style.backgroundColor = "#FFF";
+      formList.style.boxShadow = "rgb(0 0 0 / 14%) 0px 1px 12px 1px";
+    })
+  })
+}
+
+console.log('formLists',formLists)
+
+const locationWindow = document.getElementById('LocationWindow');
+
+
+document.addEventListener('click',(e)=>{
+  if (e.target.closest('#locationForm')) {
+    locationWindow.setAttribute('data-open', 'true');
+  }else{
+    locationWindow.setAttribute('data-open', 'false');
+  }
+})
+
+setClickedFormStyle();s
+
+

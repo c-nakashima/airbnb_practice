@@ -35,11 +35,19 @@
         <li class="condition">オンライン体験</li>
       </ul>
       <div id="searchForm" class="search-form">
-        <ul id="formLists" class="formlists destination" data-selected="true">
+        <ul id="hotelFormLists" class="hotelFormLists formlists" data-selected="true">
           <li class="formlist extendedformlist">
-            <form class="form" action="#">
+            <form id="locationForm" class="form" action="#">
               <label class="label" for="#">ロケーション</label>
               <input class="input" type="text" placeholder="行き先はどちらですか？">
+              <div id="LocationWindow" class="locationwindow -hide" data-open ="false">
+                <ul>
+                  <li>
+                    <img src="./assets/location.png" alt="近場の旅行先から探す">
+                    <p>近場の旅行先から探す</p>
+                  </li>
+                </ul>
+              </div>
             </form>
           </li>
           <div class="line"></div>

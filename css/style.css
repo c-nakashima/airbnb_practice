@@ -9,6 +9,10 @@ body {
   padding: 0 80px;
 }
 
+input[type=text]:focus {
+  outline: 0;
+}
+
 @media (max-width: 1120px) {
   .container {
     padding: 0 40px;
@@ -451,6 +455,7 @@ body {
   color: #FFFFFF;
 }
 .search-form > .formlists > .formlist > .form {
+  position: relative;
   padding-right: 0px;
   display: flex;
   justify-content: center;
@@ -465,10 +470,11 @@ body {
   font-size: 12px;
 }
 .search-form > .formlists > .formlist > .form > .input {
+  width: 100%;
   padding-top: 4px;
   background-color: transparent;
   border: 0;
-  color: #eee;
+  color: #222222;
 }
 .search-form > .formlists > .formlist:nth-of-type(4) > .label {
   width: 80%;
@@ -1014,4 +1020,38 @@ body {
     line-height: 1.2;
     margin-bottom: 10px;
   }
+}
+#LocationWindow {
+  position: absolute;
+  top: 80px;
+  left: 0px;
+  width: 400px;
+  padding: 30px 0px;
+  border-radius: 18px;
+  background-color: #FFFFFF;
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 1px 12px 1px;
+  z-index: 10;
+}
+#LocationWindow[data-open=true] {
+  display: block;
+}
+#LocationWindow[data-open=false] {
+  display: none;
+}
+#LocationWindow > ul > li {
+  display: flex;
+  align-items: center;
+  padding: 4px 20px;
+}
+#LocationWindow > ul > li:hover {
+  background-color: #eee;
+}
+#LocationWindow > ul > li > img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+#LocationWindow > ul > li > p {
+  font-size: 16px;
 }
