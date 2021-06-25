@@ -438,6 +438,7 @@ input[type=text]:focus {
   width: 300px;
   padding: 0 10px;
   justify-content: space-between;
+  box-shadow: none !important;
 }
 .search-form > .formlists > .formlist.shrinkedformlist > p {
   padding-right: 10px;
@@ -514,7 +515,7 @@ input[type=text]:focus {
   }
   .search-form > .formlists.-shrinked {
     width: 300px;
-    padding: 0 12px;
+    padding: 0px;
     height: 48px;
     transition-duration: 0.4s;
   }
@@ -530,6 +531,7 @@ input[type=text]:focus {
   }
   .search-form > .formlists > .formlist.shrinkedformlist {
     width: 300px;
+    padding: 0 12px;
     justify-content: space-between;
   }
   .search-form > .formlists > .formlist.shrinkedformlist > p {
@@ -725,15 +727,18 @@ input[type=text]:focus {
   margin: 0 auto;
   color: #222222;
 }
-.calendar-form > .calendarheader {
+.calendar-form > .calenderheadergroup {
+  display: flex;
+}
+.calendar-form > .calenderheadergroup > .calendarheader {
   text-align: center;
   font-size: 24px;
   width: 100%;
 }
-.calendar-form > .calendarheader > .movemonthbtns {
+.calendar-form > .calenderheadergroup > .calendarheader > .movemonthbtns {
   position: relative;
 }
-.calendar-form > .calendarheader > .movemonthbtns > button.movemonthbtn {
+.calendar-form > .calenderheadergroup > .calendarheader > .movemonthbtns > button.movemonthbtn {
   cursor: pointer;
   background: #B78D4A;
   color: #fff;
@@ -743,7 +748,7 @@ input[type=text]:focus {
   padding: 0.5rem 2rem;
   margin: 1rem 0;
 }
-.calendar-form > .calendarheader > .movemonthbtns > button.movemonthbtn:hover {
+.calendar-form > .calenderheadergroup > .calendarheader > .movemonthbtns > button.movemonthbtn:hover {
   background-color: #D4BB92;
   border-color: #D4BB92;
 }
@@ -751,8 +756,11 @@ input[type=text]:focus {
   width: 100%;
   text-align: center;
 }
-.calendar-form > .calendar > table > tbody > tr > .disabled {
+.calendar-form > .calendar > table > tbody > tr > td.-disabled {
   visibility: hidden;
+}
+.calendar-form > .calendar > table > tbody > tr > td.-previous {
+  color: green;
 }
 
 #Keyvisual {
@@ -1106,7 +1114,6 @@ input[type=text]:focus {
   left: 0px;
   right: 0px;
   width: 100%;
-  max-width: 800px;
 }
 #CheckinWindow[data-open=true] {
   display: flex;

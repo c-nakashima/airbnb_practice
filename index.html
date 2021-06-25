@@ -58,12 +58,16 @@
               <div id="CheckinWindow" class="checkinwindow form-popup-window" data-open="false">
                 <div class="calendar-form wrapper">
                   <!-- xxxx年xx月を表示 -->
-                  <p id="calendarHeader" class="calendarheader"></p>
+                  <div class="calenderheadergroup">
+                    <button id="currentMonthPrevBtn" class="prevbtn">‹</button>
+                    <p id="calendarHeader" class="calendarheader"></p>
+                    <button id="currentMonthNextBtn" class="nextbtn">›</button>
+                  </div>
 
                   <!-- ボタンクリックで月移動 -->
                   <div id="moveMonthBtns">
-                    <button id="prevBtn" class="prevbtn" onclick="prev()">‹</button>
-                    <button id="nextBtn" class="nextbtn" onclick="next()">›</button>
+                    <!-- <button id="prevBtn" class="prevbtn" onclick="prev()">‹</button>
+                    <button id="nextBtn" class="nextbtn" onclick="next()">›</button> -->
                   </div>
 
                   <!-- カレンダー -->
@@ -71,7 +75,11 @@
                 </div>
                 <div class="calendar-form wrapper">
                   <!-- xxxx年xx月を表示 -->
-                  <p id="nextCalendarHeader" class="calendarheader nextcalendarheader"></p>
+                  <div class="calenderheadergroup">
+                    <button id="nextMonthPrevBtn" class="prevbtn">‹</button>
+                    <p id="nextCalendarHeader" class="calendarheader nextcalendarheader"></p>
+                    <button id="nextMonthNextBtn" class="nextbtn">›</button>
+                  </div>
 
                   <!-- カレンダー -->
                   <div id="nextMonthCalendar" class="calendar"></div>

@@ -106,47 +106,73 @@ toggleFormWindow('#checkinForm', checkinWindow);
 //set checkin calendar function
 const week = ["日", "月", "火", "水", "木", "金", "土"];
 const today = new Date();
+const nextMonthToday = new Date();
+nextMonthToday.setMonth(nextMonthToday.getMonth() + 1);
+console.log('nextMonthToday', nextMonthToday);
 
 let showDate = new Date(today.getFullYear(), today.getMonth(), 1);
+let showNextMonthDate = new Date(nextMonthToday.getFullYear(), nextMonthToday.getMonth(), 1);
+
+const currentMonthPrevBtn = document.getElementById('currentMonthPrevBtn');
+const currentMonthNextBtn = document.getElementById('currentMonthNextBtn');
+const nextMonthPrevBtn = document.getElementById('nextMonthPrevBtn');
+const nextMonthNextBtn = document.getElementById('nextMonthNextBtn');
 
 // init
 window.onload = function () {
-  showCalendar(today, 'calendar', 'calendarHeader',calendar);
-  showCalendar(today, 'nextMonthCalendar', 'nextCalendarHeader', calendar);
+  showCalendar(today, 'calendar', 'calendarHeader', calendar);
+  showCalendar(nextMonthToday, 'nextMonthCalendar', 'nextCalendarHeader', calendar);
+  showPrevMonth(currentMonthPrevBtn, 'calendar', 'calendarHeader');
+  showNextMonth(currentMonthNextBtn, 'calendar', 'calendarHeader');
+  showPrevMonth(nextMonthPrevBtn, 'nextMonthCalendar', 'nextCalendarHeader');
+  showNextMonth(nextMonthNextBtn, 'nextMonthCalendar', 'nextCalendarHeader');
 };
 
 
 
 // show prev month button
-function showPrevMonth() {
-  showDate.setMonth(showDate.getMonth() - 1);
-  showCalendar(showDate);
+function showPrevMonth(targetBtnElem, targetCalendarId, targetHeaderId) {
+  targetBtnElem.addEventListener('click', () => {
+    showDate.setMonth(showDate.getMonth() - 1);
+    showCalendar(showDate, targetCalendarId, targetHeaderId);
+    if (targetBtnElem === currentMonthPrevBtn) {
+      showNextMonthDate.setMonth(showNextMonthDate.getMonth() - 1);
+      showCalendar(showNextMonthDate, 'nextMonthCalendar', 'nextCalendarHeader');
+    }
+  }
+  )
 }
 
 // show next month button
-function showNextMonth() {
-  showDate.setMonth(showDate.getMonth() + 1);
-  showCalendar(showDate);
+function showNextMonth(targetBtnElem, targetCalendarId, targetHeaderId) {
+  targetBtnElem.addEventListener('click', () => {
+    showNextMonthDate.setMonth(showNextMonthDate.getMonth() + 1);
+    showCalendar(showNextMonthDate, targetCalendarId, targetHeaderId);
+    if (targetBtnElem === nextMonthNextBtn) {
+      showDate.setMonth(showDate.getMonth() + 1);
+      showCalendar(showDate, 'calendar', 'calendarHeader');
+    } 
+  })
 }
 
 // show calendar
-function showCalendar(date,targetCalenderId,targetHeaderId) {
+function showCalendar(date, targetCalendarId, targetHeaderId) {
   let year = date.getFullYear();
   let month = date.getMonth();
   document.getElementById(targetHeaderId).innerHTML = year + "年 " + (month + 1) + "月";
 
   let calendar = createCalendar(year, month);
-  document.getElementById(targetCalenderId).innerHTML = calendar;
+  document.getElementById(targetCalendarId).innerHTML = calendar;
 }
 
 // create calendar
 function createCalendar(year, month) {
-    // 曜日
-    let calendar = "<table><tr class='dayOfWeek'>";
-    for (var i = 0; i < week.length; i++) {
-        calendar += `<th>${week[i]}</th>`;
-    }
-    calendar += "</tr>";
+  // 曜日
+  let calendar = "<table><tr class='dayOfWeek'>";
+  for (var i = 0; i < week.length; i++) {
+    calendar += `<th>${week[i]}</th>`;
+  }
+  calendar += "</tr>";
 
   let count = 0;
   let startDayOfWeek = new Date(year, month, 1).getDay();
@@ -154,23 +180,34 @@ function createCalendar(year, month) {
   let lastMonthEndDate = new Date(year, month, 0).getDate();
   let rowLength = Math.ceil((startDayOfWeek + endDate) / week.length);
 
+  //draw calendar body
   for (let i = 0; i < rowLength; i++) {
     calendar += "<tr>";
     for (let j = 0; j < week.length; j++) {
       if (i == 0 && j < startDayOfWeek) {
-        calendar += "<td class='disabled'>" + (lastMonthEndDate - startDayOfWeek + j + 1) + "</td>";
+        //hide previout month date
+        calendar += "<td class='-disabled'>" + (lastMonthEndDate - startDayOfWeek + j + 1) + "</td>";
       } else if (count >= endDate) {
+        //hide next month date
         count++;
-        calendar += "<td class='disabled'>" + (count - endDate) + "</td>";
+        calendar += "<td class='-disabled'>" + (count - endDate) + "</td>";
       } else {
         count++;
-        if (year == today.getFullYear()
-          && month == (today.getMonth())
-          && count == today.getDate()) {
-          calendar += "<td class='today'>" + count + "</td>";
-        } else {
-          calendar += "<td>" + count + "</td>";
-        }
+        //greyout previous days
+        if (year < today.getFullYear()
+          || month < (today.getMonth())
+          || year <= today.getFullYear()
+          && month <= (today.getMonth())
+          && count < today.getDate()) {
+          calendar += "<td class='-previous'>" + count + "</td>";
+        } else //get today
+          if (year == today.getFullYear()
+            && month == (today.getMonth())
+            && count == today.getDate()) {
+            calendar += "<td class='-today'>" + count + "</td>";
+          } else {
+            calendar += "<td>" + count + "</td>";
+          }
       }
     }
     calendar += "</tr>";
