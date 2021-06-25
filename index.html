@@ -40,7 +40,7 @@
             <form id="locationForm" class="form" action="#">
               <label class="label" for="#">ロケーション</label>
               <input class="input" type="text" placeholder="行き先はどちらですか？">
-              <div id="LocationWindow" class="locationwindow -hide" data-open ="false">
+              <div id="LocationWindow" class="locationwindow form-popup-window" data-open="false">
                 <ul>
                   <li>
                     <img src="./assets/location.png" alt="近場の旅行先から探す">
@@ -52,9 +52,31 @@
           </li>
           <div class="line"></div>
           <li class="formlist extendedformlist">
-            <form class="form" action="#">
+            <form id="checkinForm" class="form" action="#">
               <label class="label" for="#">チェックイン</label>
               <input class="input" type="text" placeholder="日付を入力">
+              <div id="CheckinWindow" class="checkinwindow form-popup-window" data-open="false">
+                <div class="calendar-form wrapper">
+                  <!-- xxxx年xx月を表示 -->
+                  <p id="calendarHeader" class="calendarheader"></p>
+
+                  <!-- ボタンクリックで月移動 -->
+                  <div id="moveMonthBtns">
+                    <button id="prevBtn" class="prevbtn" onclick="prev()">‹</button>
+                    <button id="nextBtn" class="nextbtn" onclick="next()">›</button>
+                  </div>
+
+                  <!-- カレンダー -->
+                  <div id="calendar" class="calendar"></div>
+                </div>
+                <div class="calendar-form wrapper">
+                  <!-- xxxx年xx月を表示 -->
+                  <p id="nextCalendarHeader" class="calendarheader nextcalendarheader"></p>
+
+                  <!-- カレンダー -->
+                  <div id="nextMonthCalendar" class="calendar"></div>
+                </div>
+              </div>
             </form>
           </li>
           <div class="line"></div>

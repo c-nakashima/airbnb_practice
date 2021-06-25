@@ -385,6 +385,7 @@ input[type=text]:focus {
   justify-content: center;
 }
 .search-form > .formlists {
+  position: relative;
   width: auto;
   height: auto;
   padding: 0px;
@@ -455,7 +456,6 @@ input[type=text]:focus {
   color: #FFFFFF;
 }
 .search-form > .formlists > .formlist > .form {
-  position: relative;
   padding-right: 0px;
   display: flex;
   justify-content: center;
@@ -711,6 +711,50 @@ input[type=text]:focus {
     border-radius: 20px;
   }
 }
+.form-popup-window {
+  position: absolute;
+  padding: 30px 0px;
+  border-radius: 18px;
+  background-color: #FFFFFF;
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 1px 12px 1px;
+  z-index: 10;
+}
+
+.calendar-form {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #222222;
+}
+.calendar-form > .calendarheader {
+  text-align: center;
+  font-size: 24px;
+  width: 100%;
+}
+.calendar-form > .calendarheader > .movemonthbtns {
+  position: relative;
+}
+.calendar-form > .calendarheader > .movemonthbtns > button.movemonthbtn {
+  cursor: pointer;
+  background: #B78D4A;
+  color: #fff;
+  border: 1px solid #B78D4A;
+  border-radius: 4px;
+  font-size: 1rem;
+  padding: 0.5rem 2rem;
+  margin: 1rem 0;
+}
+.calendar-form > .calendarheader > .movemonthbtns > button.movemonthbtn:hover {
+  background-color: #D4BB92;
+  border-color: #D4BB92;
+}
+.calendar-form > .calendar {
+  width: 100%;
+  text-align: center;
+}
+.calendar-form > .calendar > table > tbody > tr > .disabled {
+  visibility: hidden;
+}
+
 #Keyvisual {
   margin-top: -80px;
   padding-top: 80px;
@@ -1026,11 +1070,6 @@ input[type=text]:focus {
   top: 80px;
   left: 0px;
   width: 400px;
-  padding: 30px 0px;
-  border-radius: 18px;
-  background-color: #FFFFFF;
-  box-shadow: rgba(0, 0, 0, 0.14) 0px 1px 12px 1px;
-  z-index: 10;
 }
 #LocationWindow[data-open=true] {
   display: block;
@@ -1054,4 +1093,47 @@ input[type=text]:focus {
 }
 #LocationWindow > ul > li > p {
   font-size: 16px;
+}
+
+@media (max-width: 750px) {
+  #LocationWindow {
+    display: none !important;
+  }
+}
+#CheckinWindow {
+  position: absolute;
+  top: 80px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  max-width: 800px;
+}
+#CheckinWindow[data-open=true] {
+  display: flex;
+}
+#CheckinWindow[data-open=false] {
+  display: none;
+}
+#CheckinWindow > ul > li {
+  display: flex;
+  align-items: center;
+  padding: 4px 20px;
+}
+#CheckinWindow > ul > li:hover {
+  background-color: #eee;
+}
+#CheckinWindow > ul > li > img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+#CheckinWindow > ul > li > p {
+  font-size: 16px;
+}
+
+@media (max-width: 751px) {
+  #CheckinWindow {
+    display: none;
+  }
 }

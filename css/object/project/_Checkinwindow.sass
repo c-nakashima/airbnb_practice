@@ -1,10 +1,12 @@
-#LocationWindow
+#CheckinWindow
   position: absolute
   top: 80px
   left: 0px
-  width: 400px
+  right: 0px
+  width: 100%
+  max-width: 800px
   &[data-open='true']
-    display: block
+    display: flex
   &[data-open='false']
     display: none
   >ul
@@ -22,6 +24,6 @@
       >p
         font-size: 16px
 
-@media (max-width: 750px)
-  #LocationWindow
-    display: none!important
+@media (max-width: 751px)
+  #CheckinWindow
+    display: none
