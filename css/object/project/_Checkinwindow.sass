@@ -6,23 +6,39 @@
   left: 0px
   right: 0px
   &[data-open='true']
-    display: flex
+    display: block
   &[data-open='false']
     display: none
-  >ul
-    >li
-      display: flex
-      align-items: center
-      padding: 4px 20px
-      &:hover
-        background-color: $COLOR_GREY
-      >img
-        width: 60px
-        height: 60px
-        border-radius: 10px
-        margin-right: 20px
-      >p
-        font-size: 16px
+#CheckinWindow
+  >.calendararea
+    display: flex
+  >.togglebtnarea
+    display: flex
+    justify-content: center
+    padding: 0 0 32px 0
+    >.togglebtn
+      background-color: $COLOR_GREY
+      border-radius: 100px
+      >.toggle
+        margin: 4px 6px 4px
+        padding: 5px 14px
+        font-weight: 600
+        border-radius: 100px
+        cursor: pointer
+        &.-selected
+          background-color: $COLOR_WHITE
+
+@media (max-width: 1120px)
+  #CheckinWindow
+    >.calendararea
+      >.calendar-form
+        &.-nextmonth
+          display: none
+        >.calenderheadergroup
+          >.currentmonthnextbtn
+            display: block
+
+
 
 @media (max-width: 751px)
   #CheckinWindow

@@ -752,6 +752,12 @@ input[type=text]:focus {
 .calendar-form > .calenderheadergroup > .movemonthbtn:hover {
   background-color: #F7F7F7;
 }
+.calendar-form > .calenderheadergroup > .movemonthbtn.currentmonthnextbtn {
+  display: none;
+}
+.calendar-form > .calenderheadergroup > .movemonthbtn.nextmonthprevtbtn {
+  display: none;
+}
 .calendar-form > .calendar {
   width: 100%;
   text-align: center;
@@ -1130,29 +1136,43 @@ input[type=text]:focus {
   right: 0px;
 }
 #CheckinWindow[data-open=true] {
-  display: flex;
+  display: block;
 }
 #CheckinWindow[data-open=false] {
   display: none;
 }
-#CheckinWindow > ul > li {
+
+#CheckinWindow > .calendararea {
   display: flex;
-  align-items: center;
-  padding: 4px 20px;
 }
-#CheckinWindow > ul > li:hover {
+#CheckinWindow > .togglebtnarea {
+  display: flex;
+  justify-content: center;
+  padding: 0 0 32px 0;
+}
+#CheckinWindow > .togglebtnarea > .togglebtn {
   background-color: #EBEBEB;
+  border-radius: 100px;
 }
-#CheckinWindow > ul > li > img {
-  width: 60px;
-  height: 60px;
-  border-radius: 10px;
-  margin-right: 20px;
+#CheckinWindow > .togglebtnarea > .togglebtn > .toggle {
+  margin: 4px 6px 4px;
+  padding: 5px 14px;
+  font-weight: 600;
+  border-radius: 100px;
+  cursor: pointer;
 }
-#CheckinWindow > ul > li > p {
-  font-size: 16px;
+#CheckinWindow > .togglebtnarea > .togglebtn > .toggle.-selected {
+  background-color: #FFFFFF;
 }
 
+@media (max-width: 1120px) {
+  #CheckinWindow > .calendararea > .calendar-form.-nextmonth {
+    display: none;
+  }
+  #CheckinWindow > .calendararea > .calendar-form > .calenderheadergroup > .currentmonthnextbtn {
+    display: block;
+  }
+}
 @media (max-width: 751px) {
   #CheckinWindow {
     display: none;

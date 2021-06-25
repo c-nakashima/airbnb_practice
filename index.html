@@ -57,22 +57,30 @@
               <input class="input" type="text" placeholder="日付を入力">
 
               <div id="CheckinWindow" class="checkinwindow form-popup-window" data-open="false">
-                <div class="calendar-form wrapper">
-                  <div class="calenderheadergroup">
-                    <button id="currentMonthPrevBtn" class="prevbtn movemonthbtn">‹</button>
-                    <p id="calendarHeader" class="calendarheader"></p>
-                    <button id="currentMonthNextBtn" class="nextbtn movemonthbtn">›</button>
+                <div class="togglebtnarea">
+                  <div class="togglebtn">
+                    <button id="calenderToggleBtn" class="toggle -selected -calendar">カレンダー</button>
+                    <button id="dateToggleBtn" class="toggle -date">柔軟な日付設定</button>
                   </div>
-                  <div id="calendar" class="calendar"></div>
                 </div>
-
-                <div class="calendar-form wrapper">
-                  <div class="calenderheadergroup">
-                    <button id="nextMonthPrevBtn" class="prevbtn movemonthbtn">‹</button>
-                    <p id="nextCalendarHeader" class="calendarheader nextcalendarheader"></p>
-                    <button id="nextMonthNextBtn" class="nextbtn movemonthbtn">›</button>
+                <div class="calendararea">
+                  <div class="calendar-form -currentmonth">
+                    <div class="calenderheadergroup">
+                      <button id="currentMonthPrevBtn" class="movemonthbtn currentmonthprevbtn">‹</button>
+                      <p id="calendarHeader" class="calendarheader"></p>
+                      <button id="currentMonthNextBtn" class="movemonthbtn currentmonthnextbtn">›</button>
+                    </div>
+                    <div id="calendar" class="calendar"></div>
                   </div>
-                  <div id="nextMonthCalendar" class="calendar"></div>
+  
+                  <div class="calendar-form -nextmonth">
+                    <div class="calenderheadergroup">
+                      <button id="nextMonthPrevBtn" class="movemonthbtn nextmonthprevbtn">‹</button>
+                      <p id="nextCalendarHeader" class="calendarheader nextcalendarheader"></p>
+                      <button id="nextMonthNextBtn" class="movemonthbtn nextmonthnextbtn">›</button>
+                    </div>
+                    <div id="nextMonthCalendar" class="calendar"></div>
+                  </div>
                 </div>
               </div>
 

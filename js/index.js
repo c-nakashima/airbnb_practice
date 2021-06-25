@@ -91,7 +91,7 @@ toggleFormWindow('#locationForm', locationWindow);
 toggleFormWindow('#checkinForm', checkinWindow);
 
 
-//set checkin calendar function
+//set checkin calendar function ==============================================
 const week = ["日", "月", "火", "水", "木", "金", "土"];
 const today = new Date();
 const nextMonthToday = new Date();
@@ -199,3 +199,16 @@ function createCalendar(year, month) {
   }
   return calendar;
 }
+
+//set calendar toggle button
+const calenderToggleBtn = document.getElementById('calenderToggleBtn');
+const dateToggleBtn = document.getElementById('dateToggleBtn');
+
+calenderToggleBtn.addEventListener('click',()=>{
+  calenderToggleBtn.classList.toggle('-selected');
+  dateToggleBtn.classList.toggle('-selected');
+})
+dateToggleBtn.addEventListener('click',()=>{
+  dateToggleBtn.classList.toggle('-selected');
+  calenderToggleBtn.classList.toggle('-selected');
+})
