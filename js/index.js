@@ -8,6 +8,9 @@ const extendedFormLists = document.getElementsByClassName('extendedformlist');
 const shrinkedFormLists = document.getElementsByClassName('shrinkedformlist');
 const conditions = document.getElementById('conditions');
 const formLists = document.getElementsByClassName('formlist')
+const lines = document.getElementsByClassName('line');
+const formListsArray = document.getElementsByClassName('formlists');
+
 const hotelFormLists = document.getElementById('hotelFormLists');
 const experienceFormLists = document.getElementById('experienceFormLists');
 const locationForm = document.getElementById('locationForm');
@@ -35,18 +38,18 @@ toggleFormWindow('#peopleForm', peopleWindow);
 function shrinkSearchForm() {
   $('header').addClass('-bgwhite');
   Array.from(extendedFormLists).forEach((extendedFormList) => {
-    extendedFormList.classList.add("-hide");
+    extendedFormList.classList.add('-hide');
   });
   Array.from(searchFormLines).forEach((searchFormLine) => {
-    searchFormLine.classList.add("-hide");
+    searchFormLine.classList.add('-hide');
   });
   Array.from(shrinkedFormLists).forEach((shrinkedFormList) => {
-    shrinkedFormList.classList.remove("-hide");
-    shrinkedFormList.classList.add("-shrinked");
+    shrinkedFormList.classList.remove('-hide');
+    shrinkedFormList.classList.add('-shrinked');
   });
 
-  searchForm.classList.add("-shrinked");
-  conditions.classList.add("-hide");
+  searchForm.classList.add('-shrinked');
+  conditions.classList.add('-hide');
   hotelFormLists.classList.add('-shrinked');
   experienceFormLists.classList.add('-shrinked');
   header.classList.add('-shrinked');
@@ -56,35 +59,81 @@ function shrinkSearchForm() {
 function extendSearchForm() {
   $('header').removeClass('-bgwhite');
   Array.from(extendedFormLists).forEach((extendedFormList) => {
-    extendedFormList.classList.remove("-hide");
+    extendedFormList.classList.remove('-hide');
   });
   Array.from(searchFormLines).forEach((searchFormLine) => {
-    searchFormLine.classList.remove("-hide");
+    searchFormLine.classList.remove('-hide');
   });
   Array.from(shrinkedFormLists).forEach((shrinkedFormList) => {
-    shrinkedFormList.classList.add("-hide");
-    shrinkedFormList.classList.remove("-shrinked");
+    shrinkedFormList.classList.add('-hide');
+    shrinkedFormList.classList.remove('-shrinked');
   });
-  searchForm.classList.remove("-shrinked");
+  searchForm.classList.remove('-shrinked');
   hotelFormLists.classList.remove('-shrinked');
   experienceFormLists.classList.remove('-shrinked');
   header.classList.remove('-shrinked');
   if (windowWidth > 750) {
-    conditions.classList.remove("-hide")
+    conditions.classList.remove('-hide')
   }
 }
 
 //set clicked form style
 function setClickedFormStyle() {
-  Array.from(formLists).forEach(formList => {
-    formList.addEventListener('click', (e) => {
-      Array.from(formLists).forEach(formList => {
-        formList.classList.remove("-focused");
+
+  Array.from(formLists).forEach((formList, i) => {
+    formList.addEventListener('click', () => {
+      Array.from(formLists).forEach((formList, j) => {
+        formList.classList.remove('-focused');
+        formListsArray[0].classList.remove('-focused');
+        switch (i) {
+          case 0:
+            lines[0].classList.add('-hide');
+            lines[1].classList.remove('-hide');
+            lines[2].classList.remove('-hide');
+            break;
+          case 1:
+            lines[0].classList.add('-hide');
+            lines[1].classList.add('-hide');
+            lines[2].classList.remove('-hide');
+            break;
+          case 2:
+            lines[0].classList.remove('-hide');
+            lines[1].classList.add('-hide');
+            lines[2].classList.add('-hide');
+            break;
+          case 3:
+            lines[1].classList.remove('-hide');
+            lines[2].classList.add('-hide');
+            break;
+          case 4:
+            break;
+          default:
+            break;
+        }
       })
-      formList.classList.add("-focused");
+      formList.classList.add('-focused');
+      Array.from(formListsArray).forEach((formLists)=>{
+        formLists.classList.remove('-focused');
+      })
     })
   })
 }
+
+//open / close popup window
+function toggleFocusedStatus() {
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('#searchForm')) {
+      Array.from(formLists).forEach((formList)=>{
+        formList.classList.remove('-focused');
+      })
+      Array.from(formListsArray).forEach((formLists)=>{
+        formLists.classList.remove('-focused');
+      })
+    }
+  })
+}
+
+toggleFocusedStatus()
 
 //open / close popup window
 function toggleFormWindow(parentNodeSelector, targetElem) {
@@ -108,7 +157,7 @@ function toggleCheckinFormWindow() {
 }
 
 //set checkin calendar function ==============================================
-const week = ["日", "月", "火", "水", "木", "金", "土"];
+const week = ['日', '月', '火', '水', '木', '金', '土'];
 const today = new Date();
 const nextMonthToday = new Date();
 nextMonthToday.setMonth(nextMonthToday.getMonth() + 1);
@@ -222,13 +271,13 @@ const dateToggleBtn = document.getElementById('dateToggleBtn');
 const calenderArea = document.getElementById('calenderArea');
 const flexiblePlanArea = document.getElementById('flexiblePlanArea');
 
-calenderToggleBtn.addEventListener('click',()=>{
+calenderToggleBtn.addEventListener('click', () => {
   calenderToggleBtn.classList.toggle('-selected');
   dateToggleBtn.classList.toggle('-selected');
   calenderArea.classList.remove('-hide');
   flexiblePlanArea.classList.add('-hide');
 })
-dateToggleBtn.addEventListener('click',()=>{
+dateToggleBtn.addEventListener('click', () => {
   dateToggleBtn.classList.toggle('-selected');
   calenderToggleBtn.classList.toggle('-selected');
   calenderArea.classList.add('-hide');
@@ -237,8 +286,8 @@ dateToggleBtn.addEventListener('click',()=>{
 
 //draw lengthofstaylist
 const lengthOfStays = document.getElementsByClassName('lengthofstay');
-Array.from(lengthOfStays).forEach((lengthOfStay)=>{
-  lengthOfStay.addEventListener('click',()=>{
+Array.from(lengthOfStays).forEach((lengthOfStay) => {
+  lengthOfStay.addEventListener('click', () => {
     lengthOfStay.classList.toggle('-selected');
   })
 })
@@ -247,13 +296,13 @@ Array.from(lengthOfStays).forEach((lengthOfStay)=>{
 const monthList = document.getElementById('monthList');
 const month = new Date().getMonth() + 1;
 
-for(let i=month+1; i<month+7; i++){
+for (let i = month + 1; i < month + 7; i++) {
   const li = document.createElement('li');
-  if(i<=month+2){
-    li.classList.add('-selected');    
+  if (i <= month + 2) {
+    li.classList.add('-selected');
   }
   li.innerHTML = `<img src="/assets/calendar_selected.jpg" alt="カレンダー"><p>${i}月</p>`;
-  li.addEventListener('click',()=>{
+  li.addEventListener('click', () => {
     li.classList.toggle('-selected');
   })
   monthList.appendChild(li);
@@ -268,35 +317,35 @@ Array.from(PeoplenumCounters).forEach(PeoplenumCounter => {
   const minusBtn = document.createElement('button');
   const peopleNum = document.createElement('span');
   const plusBtn = document.createElement('button');
-  minusBtn.setAttribute('class','minusbtn counter');
-  peopleNum.setAttribute('class','peoplenum');
-  plusBtn.setAttribute('class','plusbtn counter');
+  minusBtn.setAttribute('class', 'minusbtn counter');
+  peopleNum.setAttribute('class', 'peoplenum');
+  plusBtn.setAttribute('class', 'plusbtn counter');
 
   let peopleNumCount = 0;
 
   minusBtn.innerText = `-`;
   peopleNum.innerHTML = String(peopleNumCount);
   plusBtn.innerText = `+`;
-  
+
   PeoplenumCounter.appendChild(minusBtn);
   PeoplenumCounter.appendChild(peopleNum);
   PeoplenumCounter.appendChild(plusBtn);
 
-  function checkPeopleNumCount(){
-    if(peopleNumCount === 0){
+  function checkPeopleNumCount() {
+    if (peopleNumCount === 0) {
       minusBtn.classList.add('-disabled');
-    }else{
+    } else {
       minusBtn.classList.remove('-disabled');
     }
   }
 
-  plusBtn.addEventListener('click',()=>{
+  plusBtn.addEventListener('click', () => {
     peopleNumCount++;
     peopleNum.innerHTML = String(peopleNumCount);
     checkPeopleNumCount();
   })
-  minusBtn.addEventListener('click',()=>{
-    if(peopleNumCount != 0){
+  minusBtn.addEventListener('click', () => {
+    if (peopleNumCount != 0) {
       peopleNumCount--;
       peopleNum.innerHTML = String(peopleNumCount);
       checkPeopleNumCount();

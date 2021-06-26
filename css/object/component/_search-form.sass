@@ -3,6 +3,8 @@
   margin-top: 30px
   display: flex
   justify-content: center
+  &.-shrinked
+    transform: translateY(-75px)
   > .formlists
     position: relative
     width: auto
@@ -15,7 +17,11 @@
     border-radius: 80px
     border: 1px solid $COLOR_GREY
     box-shadow: $SHADOW_NORMAL
+    &.-focused
+      background-color: $COLOR_LIGHTGREY
     > .line
+      position: relative
+      z-index: 10
       content: ""
       width: 1px
       height: 60%
@@ -27,17 +33,17 @@
     &[data-selected='false']
       display: none
     > .formlist
+      width: 100%
       padding: 0
       height: 100%
       display: flex
       justify-content: center
       align-items: center
       background-color: $COLOR_WHITE
+      background-color: transparent
       border-radius: 80px
       &:hover
         background-color: $COLOR_GREY
-      &:hover:nth-of-type(4)
-        background-color: yellow
       &.-last
         display: flex
       &.-hide
@@ -66,19 +72,23 @@
           background-color: rgb(255, 56, 92)
           color: $COLOR_WHITE
       >.form
-        // position: relative
         padding-right: 0px
         display: flex
         justify-content: center
         flex-direction: column
         padding: 16px 20px
+        &.peopleform
+          padding-right: 0
+          >.label
+            max-width: calc(100%-60px)
+          >.input
+            max-width: calc(100%-60px)
         &:hover
           cursor: pointer
         > .label
           display: inline
           font-size: 12px
         > .input
-          width: 100%
           padding-top: 4px
           background-color: transparent
           border: 0
@@ -100,19 +110,24 @@
 @media (max-width: 1120px)
   .search-form
     width: 100%
-    // margin-top: 40px
+    &.-shrinked
+      transform: translateY(-130px)
     >.formlists
-      width: 80%
       &.shrinked
         width: 300px
       >.formlist
+        width: 90%
         >.form
           padding: 16px 14px
+
+@media (max-width: 750px)
+  .search-form
+    &.-shrinked
+      transform: translateY(0px)
 
 @media (min-width: 751px)
   .search-form
     &.-shrinked
-      transform: translateY(-130px)
       transition-duration: .4s
       padding: 0px
     > .formlists

@@ -135,7 +135,7 @@ input[type=text]:focus {
 }
 #header > .container > .search-form {
   position: absolute;
-  top: 120px;
+  top: 60px;
   left: 0;
   right: 0;
 }
@@ -144,12 +144,16 @@ input[type=text]:focus {
   #header > .container {
     padding: 0 40px;
   }
-}
-@media (max-width: 950px) {
   #header > .container > .conditions {
     margin-top: 100px;
     position: absolute;
     top: 0;
+    left: 0;
+    right: 0;
+  }
+  #header > .container > .search-form {
+    position: absolute;
+    top: 120px;
     left: 0;
     right: 0;
   }
@@ -384,6 +388,9 @@ input[type=text]:focus {
   display: flex;
   justify-content: center;
 }
+.search-form.-shrinked {
+  transform: translateY(-75px);
+}
 .search-form > .formlists {
   position: relative;
   width: auto;
@@ -397,7 +404,12 @@ input[type=text]:focus {
   border: 1px solid #EBEBEB;
   box-shadow: rgba(0, 0, 0, 0.14) 0px 1px 12px 1px;
 }
+.search-form > .formlists.-focused {
+  background-color: #F7F7F7;
+}
 .search-form > .formlists > .line {
+  position: relative;
+  z-index: 10;
   content: "";
   width: 1px;
   height: 60%;
@@ -413,19 +425,18 @@ input[type=text]:focus {
   display: none;
 }
 .search-form > .formlists > .formlist {
+  width: 100%;
   padding: 0;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #FFFFFF;
+  background-color: transparent;
   border-radius: 80px;
 }
 .search-form > .formlists > .formlist:hover {
   background-color: #EBEBEB;
-}
-.search-form > .formlists > .formlist:hover:nth-of-type(4) {
-  background-color: yellow;
 }
 .search-form > .formlists > .formlist.-last {
   display: flex;
@@ -467,6 +478,15 @@ input[type=text]:focus {
   flex-direction: column;
   padding: 16px 20px;
 }
+.search-form > .formlists > .formlist > .form.peopleform {
+  padding-right: 0;
+}
+.search-form > .formlists > .formlist > .form.peopleform > .label {
+  max-width: calc(100%-60px);
+}
+.search-form > .formlists > .formlist > .form.peopleform > .input {
+  max-width: calc(100%-60px);
+}
 .search-form > .formlists > .formlist > .form:hover {
   cursor: pointer;
 }
@@ -475,7 +495,6 @@ input[type=text]:focus {
   font-size: 12px;
 }
 .search-form > .formlists > .formlist > .form > .input {
-  width: 100%;
   padding-top: 4px;
   background-color: transparent;
   border: 0;
@@ -501,19 +520,26 @@ input[type=text]:focus {
   .search-form {
     width: 100%;
   }
-  .search-form > .formlists {
-    width: 80%;
+  .search-form.-shrinked {
+    transform: translateY(-130px);
   }
   .search-form > .formlists.shrinked {
     width: 300px;
+  }
+  .search-form > .formlists > .formlist {
+    width: 90%;
   }
   .search-form > .formlists > .formlist > .form {
     padding: 16px 14px;
   }
 }
+@media (max-width: 750px) {
+  .search-form.-shrinked {
+    transform: translateY(0px);
+  }
+}
 @media (min-width: 751px) {
   .search-form.-shrinked {
-    transform: translateY(-130px);
     transition-duration: 0.4s;
     padding: 0px;
   }
@@ -820,12 +846,12 @@ input[type=text]:focus {
 #Keyvisual .container .catchcopy .copycontainer > .maincopy {
   width: 42%;
   margin-bottom: 18px;
-  font-size: 48px;
+  font-size: 60px;
   font-weight: 600;
   line-height: 1.2;
 }
 #Keyvisual .container .catchcopy .copycontainer > .subcopy {
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 18px;
 }
 #Keyvisual .container .catchcopy .copycontainer > .btn-element {
@@ -839,6 +865,12 @@ input[type=text]:focus {
   }
   #Keyvisual .container .catchcopy {
     padding: 120px 0px;
+  }
+  #Keyvisual .container .catchcopy > .copycontainer > .maincopy {
+    font-size: 48px;
+  }
+  #Keyvisual .container .catchcopy > .copycontainer > .subcopy {
+    font-size: 18px;
   }
 }
 @media (max-width: 750px) {
