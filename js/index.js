@@ -12,6 +12,13 @@ const experienceFormLists = document.getElementById('experienceFormLists');
 const locationForm = document.getElementById('locationForm');
 const searchFormLines = document.getElementsByClassName('line');
 
+// header scroll event
+$(window).scroll(function () {
+  let scrollPosition = $(this).scrollTop();
+  scrollPosition > $('header').offset().top - windowHeight && $('header').offset().top !== 0 ? shrinkSearchForm() : extendSearchForm()
+});
+
+
 function shrinkSearchForm() {
   $('header').addClass('-bgwhite');
   Array.from(extendedFormLists).forEach((extendedFormList) => {
@@ -53,12 +60,6 @@ function extendSearchForm() {
   }
 }
 
-// header scroll event
-$(window).scroll(function () {
-  let scrollPosition = $(this).scrollTop();
-  scrollPosition > $('header').offset().top - windowHeight && $('header').offset().top !== 0 ? shrinkSearchForm() : extendSearchForm()
-});
-
 
 //set clicked form style
 function setClickedFormStyle() {
@@ -83,12 +84,22 @@ function toggleFormWindow(parentNodeSelector, targetElem) {
   })
 }
 
+function toggleCheckinFormWindow() {
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('#checkinForm') || e.target.closest('#checkoutForm')) {
+      checkinWindow.setAttribute('data-open', 'true');
+    } else {
+      checkinWindow.setAttribute('data-open', 'false');
+    }
+  })
+}
+
 const locationWindow = document.getElementById('LocationWindow');
 const checkinWindow = document.getElementById('CheckinWindow');
 
 setClickedFormStyle();
 toggleFormWindow('#locationForm', locationWindow);
-toggleFormWindow('#checkinForm', checkinWindow);
+toggleCheckinFormWindow();
 
 
 //set checkin calendar function ==============================================
@@ -96,7 +107,6 @@ const week = ["日", "月", "火", "水", "木", "金", "土"];
 const today = new Date();
 const nextMonthToday = new Date();
 nextMonthToday.setMonth(nextMonthToday.getMonth() + 1);
-console.log('nextMonthToday', nextMonthToday);
 
 let showDate = new Date(today.getFullYear(), today.getMonth(), 1);
 let showNextMonthDate = new Date(nextMonthToday.getFullYear(), nextMonthToday.getMonth(), 1);
@@ -106,7 +116,7 @@ const currentMonthNextBtn = document.getElementById('currentMonthNextBtn');
 const nextMonthPrevBtn = document.getElementById('nextMonthPrevBtn');
 const nextMonthNextBtn = document.getElementById('nextMonthNextBtn');
 
-// init
+// calendar init
 window.onload = function () {
   showCalendar(today, 'calendar', 'calendarHeader', calendar);
   showCalendar(nextMonthToday, 'nextMonthCalendar', 'nextCalendarHeader', calendar);
