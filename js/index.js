@@ -2,6 +2,7 @@
 const windowHeight = $(window).height();
 const windowWidth = $(window).width();
 const header = document.getElementById('header');
+
 const searchForm = document.getElementById('searchForm');
 const extendedFormLists = document.getElementsByClassName('extendedformlist');
 const shrinkedFormLists = document.getElementsByClassName('shrinkedformlist');
@@ -12,13 +13,25 @@ const experienceFormLists = document.getElementById('experienceFormLists');
 const locationForm = document.getElementById('locationForm');
 const searchFormLines = document.getElementsByClassName('line');
 
+const locationWindow = document.getElementById('LocationWindow');
+const checkinWindow = document.getElementById('CheckinWindow');
+const peopleWindow = document.getElementById('PeopleWindow');
+
 // header scroll event
 $(window).scroll(function () {
   let scrollPosition = $(this).scrollTop();
   scrollPosition > $('header').offset().top - windowHeight && $('header').offset().top !== 0 ? shrinkSearchForm() : extendSearchForm()
 });
 
+//init
+setClickedFormStyle();
+toggleFormWindow('#locationForm', locationWindow);
+toggleCheckinFormWindow();
+toggleFormWindow('#peopleForm', peopleWindow);
 
+
+//set search form function ==============================================
+//shrink search form
 function shrinkSearchForm() {
   $('header').addClass('-bgwhite');
   Array.from(extendedFormLists).forEach((extendedFormList) => {
@@ -39,6 +52,7 @@ function shrinkSearchForm() {
   header.classList.add('-shrinked');
 }
 
+//extend search form
 function extendSearchForm() {
   $('header').removeClass('-bgwhite');
   Array.from(extendedFormLists).forEach((extendedFormList) => {
@@ -60,7 +74,6 @@ function extendSearchForm() {
   }
 }
 
-
 //set clicked form style
 function setClickedFormStyle() {
   Array.from(formLists).forEach(formList => {
@@ -73,7 +86,7 @@ function setClickedFormStyle() {
   })
 }
 
-//open / close popp window
+//open / close popup window
 function toggleFormWindow(parentNodeSelector, targetElem) {
   document.addEventListener('click', (e) => {
     if (e.target.closest(parentNodeSelector)) {
@@ -93,14 +106,6 @@ function toggleCheckinFormWindow() {
     }
   })
 }
-
-const locationWindow = document.getElementById('LocationWindow');
-const checkinWindow = document.getElementById('CheckinWindow');
-
-setClickedFormStyle();
-toggleFormWindow('#locationForm', locationWindow);
-toggleCheckinFormWindow();
-
 
 //set checkin calendar function ==============================================
 const week = ["日", "月", "火", "水", "木", "金", "土"];
@@ -182,13 +187,10 @@ function createCalendar(year, month) {
       if (i == 0 && j < startDayOfWeek) {
         //hide previout month date
         calendar += '<td class="-disabled"><div class="date">' + (lastMonthEndDate - startDayOfWeek + j + 1) + '</div></td>';
-        // calendar += `<td class="-disabled"><div class="date">${(lastMonthEndDate - startDayOfWeek + j + 1)}</div></td>`;
-
       } else if (count >= endDate) {
         //hide next month date
         count++;
         calendar += '<td class="-disabled"><div class="date">' + (count - endDate) + '</div></td>';
-        // calendar += `<td class="-disabled"><div class="date>${(count - endDate)}</div></td>`;
       } else {
         count++;
         //greyout previous days
@@ -257,3 +259,51 @@ for(let i=month+1; i<month+7; i++){
   monthList.appendChild(li);
 }
 
+//set people number counter function ==============================================
+//draw peoplelist
+const peopleList = document.getElementById('peopleList');
+const PeoplenumCounters = document.getElementsByClassName('peoplenumcounter');
+
+Array.from(PeoplenumCounters).forEach(PeoplenumCounter => {
+  const minusBtn = document.createElement('button');
+  const peopleNum = document.createElement('span');
+  const plusBtn = document.createElement('button');
+  minusBtn.setAttribute('class','minusbtn counter');
+  peopleNum.setAttribute('class','peoplenum');
+  plusBtn.setAttribute('class','plusbtn counter');
+
+  let peopleNumCount = 0;
+
+  minusBtn.innerText = `-`;
+  peopleNum.innerHTML = String(peopleNumCount);
+  plusBtn.innerText = `+`;
+  
+  PeoplenumCounter.appendChild(minusBtn);
+  PeoplenumCounter.appendChild(peopleNum);
+  PeoplenumCounter.appendChild(plusBtn);
+
+  function checkPeopleNumCount(){
+    if(peopleNumCount === 0){
+      minusBtn.classList.add('-disabled');
+    }else{
+      minusBtn.classList.remove('-disabled');
+    }
+  }
+
+  plusBtn.addEventListener('click',()=>{
+    peopleNumCount++;
+    peopleNum.innerHTML = String(peopleNumCount);
+    checkPeopleNumCount();
+  })
+  minusBtn.addEventListener('click',()=>{
+    if(peopleNumCount != 0){
+      peopleNumCount--;
+      peopleNum.innerHTML = String(peopleNumCount);
+      checkPeopleNumCount();
+    }
+  })
+
+  //init
+  peopleNumCount = 0;
+  checkPeopleNumCount();
+})

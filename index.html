@@ -111,9 +111,48 @@
           </li>
           <div class="line"></div>
           <li class="formlist extendedformlist -last">
-            <form class="form" action="#">
+            <form id="peopleForm" class="form" action="#">
               <label class="label" for="#">人数</label>
               <input class="input" type="text" placeholder="ゲスト数を入力">
+
+              <div id="PeopleWindow" class="peoplewindow form-popup-window" data-open="false">
+                <ul id="PeopleList">
+                  <li>
+                    <div class="agegroup">
+                      <p class="age">大人</p>
+                      <p class="description">13歳以上</p>
+                    </div>
+                    <div class="peoplenumcounter">
+                      <!-- <button>-</button>
+                      <span>0</span>
+                      <button>+</button> -->
+                    </div>
+                  </li>
+                  <li>
+                    <div class="agegroup">
+                      <p class="age">子ども</p>
+                      <p class="description">年齢2-12</p>
+                    </div>
+                    <div class="peoplenumcounter">
+                      <!-- <button>-</button>
+                      <span>0</span>
+                      <button>+</button> -->
+                    </div>
+                  </li>
+                  <li>
+                    <div class="agegroup">
+                      <p class="age">乳幼児</p>
+                      <p class="description">2歳未満</p>
+                    </div>
+                    <div id="peopleNumCounter" class="peoplenumcounter">
+                      <!-- <button id="plusBtn">-</button>
+                      <span id="peopleNum">0</span>
+                      <button id="minusBtn">+</button> -->
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
             </form>
             <button class="submitbtn" type="submit">
               <i class="fas fa-search"></i>
