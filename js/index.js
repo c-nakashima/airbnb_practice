@@ -3,6 +3,7 @@ const windowHeight = $(window).height();
 const windowWidth = $(window).width();
 const header = document.getElementById('header');
 const accountBtn = document.getElementById('accountBtn');
+const userSelectLangList = document.getElementById('userSelectLangList');
 
 const searchForm = document.getElementById('searchForm');
 const extendedFormLists = document.getElementsByClassName('extendedformlist');
@@ -218,7 +219,6 @@ function showCalendar(date, targetCalendarId, targetHeaderId) {
 
 // create calendar
 function createCalendar(year, month) {
-  // 曜日
   let calendar = "<table><tr class='dayOfWeek'>";
   for (var i = 0; i < week.length; i++) {
     calendar += `<th>${week[i]}</th>`;
@@ -359,7 +359,376 @@ Array.from(PeoplenumCounters).forEach(PeoplenumCounter => {
   checkPeopleNumCount();
 })
 
-// //set account open/close function ==============================================
-// accountBtn.addEventListener('click',()=>{
-//   accountBtn.
-// })
+//draw language list ==============================================
+const langSets = [
+  {
+    "lang": "日本語",
+    "region": "日本"
+  },
+  {
+    "lang": "Azərbaycan dili",
+    "region": "Azərbaycan"
+  },
+  {
+    "lang": "Bahasa Indonesia",
+    "region": "Indonesia"
+  },
+  {
+    "lang": "Bosanski",
+    "region": "Bosna i Hercegovina"
+  },
+  {
+    "lang": "Català",
+    "region": "Espanya"
+  },
+  {
+    "lang": "Čeština",
+    "region": "Česká republika"
+  },
+  {
+    "lang": "Crnogorski",
+    "region": "Crna Gora"
+  },
+  {
+    "lang": "Dansk",
+    "region": "Danmark"
+  },
+  {
+    "lang": "Deutsch",
+    "region": "Deutschland"
+  },
+  {
+    "lang": "Deutsch",
+    "region": "Österreich"
+  },
+  {
+    "lang": "Deutsch",
+    "region": "Schweiz"
+  },
+  {
+    "lang": "Eesti",
+    "region": "Eesti"
+  },
+  {
+    "lang": "English",
+    "region": "Australia"
+  },
+  {
+    "lang": "English",
+    "region": "Canada"
+  },
+  {
+    "lang": "English",
+    "region": "Guyana"
+  },
+  {
+    "lang": "English",
+    "region": "India"
+  },
+  {
+    "lang": "English",
+    "region": "Ireland"
+  },
+  {
+    "lang": "English",
+    "region": "New Zealand"
+  },
+  {
+    "lang": "English",
+    "region": "Singapore"
+  },
+  {
+    "lang": "English",
+    "region": "United Arab Emirates"
+  },
+  {
+    "lang": "English",
+    "region": "Argentina"
+  },
+  {
+    "lang": "Español",
+    "region": "Belice"
+  },
+  {
+    "lang": "Español",
+    "region": "Bolivia"
+  },
+  {
+    "lang": "Español",
+    "region": "Chile"
+  },
+  {
+    "lang": "Español",
+    "region": "Colombia"
+  },
+  {
+    "lang": "Español",
+    "region": "Costa Rica"
+  },
+  {
+    "lang": "Español",
+    "region": "Ecuador"
+  },
+  {
+    "lang": "Español",
+    "region": "El Salvador"
+  },
+  {
+    "lang": "Español",
+    "region": "España"
+  },
+  {
+    "lang": "Español",
+    "region": "Estados Unidos"
+  },
+  {
+    "lang": "Español",
+    "region": "Guatemala"
+  },
+  {
+    "lang": "Español",
+    "region": "Honduras"
+  },
+  {
+    "lang": "Español",
+    "region": "Colombia"
+  },
+  {
+    "lang": "Español",
+    "region": "México"
+  },
+  {
+    "lang": "Español",
+    "region": "Nicaragua"
+  },
+  {
+    "lang": "Español",
+    "region": "Panamá"
+  },
+  {
+    "lang": "Español",
+    "region": "Paraguay"
+  },
+  {
+    "lang": "Español",
+    "region": "Perú"
+  },
+  {
+    "lang": "Español",
+    "region": "Venezuela"
+  },
+  {
+    "lang": "Français",
+    "region": "Belgique"
+  },
+  {
+    "lang": "Français",
+    "region": "Canada"
+  },
+  {
+    "lang": "Français",
+    "region": "France"
+  },
+  {
+    "lang": "Français",
+    "region": "Suisse"
+  },
+  {
+    "lang": "Gaeilge",
+    "region": "Éire"
+  },
+  {
+    "lang": "Hrvatski",
+    "region": "Hrvatska"
+  },
+  {
+    "lang": "isiXhosa",
+    "region": "eMzantsi Afrika"
+  },
+  {
+    "lang": "isiZulu",
+    "region": "iNingizimu Afrika"
+  },
+  {
+    "lang": "Íslenska",
+    "region": "Ísland"
+  },
+  {
+    "lang": "Italiano",
+    "region": "Italia"
+  },
+  {
+    "lang": "Italiano",
+    "region": "Svizzera"
+  },
+  {
+    "lang": "Latviešu",
+    "region": "Āfrika"
+  },
+  {
+    "lang": "Latviešu",
+    "region": "Latvija"
+  },
+  {
+    "lang": "Lietuvių",
+    "region": "Lietuva"
+  },
+  {
+    "lang": "Magyar",
+    "region": "Magyarország"
+  },
+  {
+    "lang": "Malti",
+    "region": "Malta"
+  },
+  {
+    "lang": "Melayu",
+    "region": "Malaysia"
+  },
+  {
+    "lang": "Nederlands",
+    "region": "België"
+  },
+  {
+    "lang": "Nederlands",
+    "region": "Nederland"
+  },
+  {
+    "lang": "Melayu",
+    "region": "Nederland"
+  },
+  {
+    "lang": "Norsk",
+    "region": "Norge"
+  },
+  {
+    "lang": "Polski",
+    "region": "Polska"
+  },
+  {
+    "lang": "Brasil",
+    "region": "Português"
+  },
+  {
+    "lang": "Portugal",
+    "region": "Română"
+  },
+  {
+    "lang": "România",
+    "region": "Shqip"
+  },
+  {
+    "lang": "Shqipëri",
+    "region": "Slovenčina"
+  },
+  {
+    "lang": "Slovensko",
+    "region": "Slovenščina"
+  },
+  {
+    "lang": "Slovenija",
+    "region": "Srpski"
+  },
+  {
+    "lang": "Srbija",
+    "region": "Suomi"
+  },
+  {
+    "lang": "Svenska",
+    "region": "Sverige"
+  },
+  {
+    "lang": "Tagalog",
+    "region": "Pilipinas"
+  },
+  {
+    "lang": "Tiếng Việt",
+    "region": "Việt Nam"
+  },
+  {
+    "lang": "Türkçe",
+    "region": "Türkiye"
+  },
+  {
+    "lang": "Ελληνικά",
+    "region": "Ελλάδα"
+  },
+  {
+    "lang": "Български",
+    "region": "България"
+  },
+  {
+    "lang": "Македонски",
+    "region": "Северна Македонија"
+  },
+  {
+    "lang": "Русский",
+    "region": "Россия"
+  },
+  {
+    "lang": "Українська",
+    "region": "Україна"
+  },
+  {
+    "lang": "ქართული",
+    "region": "საქართველო"
+  },
+  {
+    "lang": "Հայերեն",
+    "region": "Հայաստան"
+  },
+  {
+    "lang": "עברית",
+    "region": "ישראל"
+  },
+  {
+    "lang": "العربية",
+    "region": "العالم"
+  },
+  {
+    "lang": "हिन्दी",
+    "region": "भारत"
+  },
+  {
+    "lang": "ไทย",
+    "region": "ประเทศไทย"
+  },
+  {
+    "lang": "한국어",
+    "region": "대한민국"
+  },
+  {
+    "lang": "繁體中文",
+    "region": "香港"
+  },
+  {
+    "lang": "美国",
+    "region": "美國"
+  },
+  {
+    "lang": "简体中文",
+    "region": "中国"
+  },
+  {
+    "lang": "繁體中文",
+    "region": "香港"
+  },
+  {
+    "lang": "繁體中文",
+    "region": "台灣"
+  }
+]
+
+for(let i=0; i<langSets.length; i++){
+  const li = document.createElement('li');
+  const langName = document.createElement('p');
+  const regionName = document.createElement('p');
+
+  langName.classList.add('langname');
+  regionName.classList.add('langregion');
+  langName.innerText = langSets[i]['lang'];
+  regionName.innerText = langSets[i]['region'];
+  li.appendChild(langName);
+  li.appendChild(regionName);
+  userSelectLangList.appendChild(li);
+}

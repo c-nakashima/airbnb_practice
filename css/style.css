@@ -96,6 +96,9 @@ input[type=text]:focus {
   width: 42px;
   height: 42px;
   border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #header > .container > .rightarea > .lang:hover {
   background-color: #F7F7F7;
@@ -1422,38 +1425,108 @@ input[type=text]:focus {
   background-color: #EBEBEB;
 }
 
-#LocationWindow {
-  position: absolute;
-  top: 80px;
-  left: 0px;
-  width: 400px;
-}
-#LocationWindow[data-open=true] {
-  display: block;
-}
-#LocationWindow[data-open=false] {
+#langBtn > .languagewindow {
   display: none;
 }
-#LocationWindow > ul > li {
+#langBtn > .languagewindow:checked + .overlay {
+  display: block;
+  z-index: 9999;
+  background-color: #22222270;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transition-duration: 2s;
+}
+#langBtn > .overlay {
+  display: none;
+}
+#langBtn > .overlay > .window {
+  width: 80%;
+  max-width: 1023px;
+  height: 70%;
+  padding: 30px;
+  background-color: #FFFFFF;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 4px 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-#LocationWindow > ul > li:hover {
-  background-color: #EBEBEB;
+#langBtn > .overlay > .window > .open {
+  cursor: pointer;
 }
-#LocationWindow > ul > li > img {
-  width: 60px;
-  height: 60px;
-  border-radius: 10px;
-  margin-right: 20px;
+#langBtn > .overlay > .window > .closebtn {
+  width: 100%;
+  font-size: 20px;
+  text-align: left;
 }
-#LocationWindow > ul > li > p {
+#langBtn > .overlay > .window > .closebtn:hover {
+  cursor: pointer;
+}
+#langBtn > .overlay > .window > .windowcontent {
+  width: 100%;
+  color: #484848;
+  overflow: scroll;
+}
+#langBtn > .overlay > .window > .windowcontent > .conditionselector {
+  width: 100%;
+  margin-top: 32px;
+  padding: 8px 0 32px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+#langBtn > .overlay > .window > .windowcontent > .conditionselector > .condition {
   font-size: 16px;
+  font-weight: 600;
+  color: #DADADA;
 }
-
-@media (max-width: 750px) {
-  #LocationWindow {
-    display: none !important;
-  }
+#langBtn > .overlay > .window > .windowcontent > .conditionselector > .condition:hover {
+  cursor: pointer;
+}
+#langBtn > .overlay > .window > .windowcontent > .conditionselector > .region {
+  margin-right: 32px;
+}
+#langBtn > .overlay > .window > .windowcontent > .conditionselector > .region.-selected {
+  color: #222222;
+  border-bottom: 1px solid #222222;
+}
+#langBtn > .overlay > .window > .windowcontent > .windowsection {
+  margin-top: 24px;
+  padding-bottom: 24px;
+}
+#langBtn > .overlay > .window > .windowcontent > .windowsection > .title {
+  padding: 8px 0 32px 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+#langBtn > .overlay > .window > .windowcontent > .windowsection > ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+#langBtn > .overlay > .window > .windowcontent > .windowsection > ul > li {
+  width: 186px;
+  height: 56px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 14px;
+  border-radius: 8px;
+}
+#langBtn > .overlay > .window > .windowcontent > .windowsection > ul > li:hover {
+  background-color: #F7F7F7;
+}
+#langBtn > .overlay > .window > .windowcontent > .windowsection > ul > li > .langname {
+  padding-bottom: 4px;
+}
+#langBtn > .overlay > .window > .windowcontent > .windowsection > ul > li > .langregion {
+  color: #717171;
+}
+#langBtn > .overlay > .window > .windowcontent > .windowsection > ul > li.-selected {
+  border: 1px solid #222222;
 }

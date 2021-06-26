@@ -34,6 +34,9 @@
         width: 42px
         height: 42px
         border-radius: 20px
+        display: flex
+        justify-content: center
+        align-items: center
         &:hover
           background-color: $COLOR_LIGHTGREY
           cursor: pointer
@@ -106,12 +109,10 @@
             content: ""
             width: 18px
             height: 10px
-            border-bottom: 2px solid $COLOR_BLACK 
+            border-bottom: 2px solid $COLOR_BLACK
           &:hover::after
             transform: scaleX(1)
             width: 18px
-
-
 
     >.search-form
       position: absolute
@@ -166,4 +167,3 @@
               padding: 0px
             >.submit
               display: none
-
