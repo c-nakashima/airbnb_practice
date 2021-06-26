@@ -139,6 +139,32 @@
       "q" : 100,
       "rq" : 75
     },
+    "\/assets\/calendar_selected.jpg" : {
+      "ft" : 16384,
+      "iS" : 407,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/assets\/calendar_selected.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
+    "\/assets\/calendar_unselected.jpg" : {
+      "ft" : 16384,
+      "iS" : 408,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/assets\/calendar_unselected.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
     "\/assets\/experience01.jpg" : {
       "ft" : 16384,
       "iS" : 342045,

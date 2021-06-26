@@ -741,6 +741,7 @@ input[type=text]:focus {
   width: 100%;
   text-align: center;
   font-size: 16px;
+  font-weight: 600;
 }
 .calendar-form > .calenderheadergroup > .movemonthbtn {
   cursor: pointer;
@@ -755,7 +756,7 @@ input[type=text]:focus {
 .calendar-form > .calenderheadergroup > .movemonthbtn.currentmonthnextbtn {
   display: none;
 }
-.calendar-form > .calenderheadergroup > .movemonthbtn.nextmonthprevtbtn {
+.calendar-form > .calenderheadergroup > .movemonthbtn.nextmonthprevbtn {
   display: none;
 }
 .calendar-form > .calendar {
@@ -770,17 +771,30 @@ input[type=text]:focus {
   padding-bottom: 8px;
 }
 .calendar-form > .calendar > table > tbody > tr > td {
-  width: 47px;
-  height: 47px;
+  width: 44px;
+  height: 44px;
   align-items: center;
-  line-height: 47px;
+  line-height: 44px;
   font-size: 14px;
+}
+.calendar-form > .calendar > table > tbody > tr > td > .date {
+  width: 42px;
+  height: 42px;
+  border: 2px solid #FFFFFF;
+  font-weight: 600;
+}
+.calendar-form > .calendar > table > tbody > tr > td > .date:hover {
+  border: 2px solid #666;
+  border-radius: 100px;
 }
 .calendar-form > .calendar > table > tbody > tr > td.-disabled {
   visibility: hidden;
 }
 .calendar-form > .calendar > table > tbody > tr > td.-previous {
   color: #DADADA;
+}
+.calendar-form > .calendar > table > tbody > tr > td.-previous > .date:hover {
+  border: 2px solid transparent;
 }
 
 #Keyvisual {
@@ -1142,9 +1156,6 @@ input[type=text]:focus {
   display: none;
 }
 
-#CheckinWindow > .calendararea {
-  display: flex;
-}
 #CheckinWindow > .togglebtnarea {
   display: flex;
   justify-content: center;
@@ -1163,6 +1174,70 @@ input[type=text]:focus {
 }
 #CheckinWindow > .togglebtnarea > .togglebtn > .toggle.-selected {
   background-color: #FFFFFF;
+}
+#CheckinWindow > .calendararea {
+  display: flex;
+}
+#CheckinWindow > .calendararea.-hide {
+  display: none;
+}
+#CheckinWindow > .flexibleplanarea {
+  padding: 0 40px 20px 40px;
+}
+#CheckinWindow > .flexibleplanarea.-hide {
+  display: none;
+}
+#CheckinWindow > .flexibleplanarea > .staychoice {
+  text-align: center;
+}
+#CheckinWindow > .flexibleplanarea > .staychoice > p {
+  padding: 24px 8px;
+  color: #717171;
+  font-size: 18px;
+}
+#CheckinWindow > .flexibleplanarea > .lengthofstaygroup {
+  padding-bottom: 10px;
+}
+#CheckinWindow > .flexibleplanarea > .lengthofstaygroup > .lengthofstaylist {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#CheckinWindow > .flexibleplanarea > .lengthofstaygroup > .lengthofstaylist > li {
+  padding: 10px 14px;
+  margin: 4px;
+  border: 1px solid #DADADA;
+  border-radius: 20px;
+}
+#CheckinWindow > .flexibleplanarea > .lengthofstaygroup > .lengthofstaylist > li.-selected {
+  border: 2px solid #222222;
+  background-color: #f7f7f7;
+}
+#CheckinWindow > .flexibleplanarea > .monthofstaygroup > .monthlist {
+  display: flex;
+  justify-content: space-between;
+}
+#CheckinWindow > .flexibleplanarea > .monthofstaygroup > .monthlist > li {
+  width: 100px;
+  height: 122px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  border: 1px solid #DADADA;
+}
+#CheckinWindow > .flexibleplanarea > .monthofstaygroup > .monthlist > li.-selected {
+  border: 2px solid #222222;
+  background-color: #f7f7f7;
+}
+#CheckinWindow > .flexibleplanarea > .monthofstaygroup > .monthlist > li > img {
+  width: 32px;
+  height: 32px;
+}
+#CheckinWindow > .flexibleplanarea > .monthofstaygroup > .monthlist > li > p {
+  padding-top: 8px;
+  font-size: 12px;
 }
 
 @media (max-width: 1120px) {

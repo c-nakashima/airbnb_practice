@@ -63,7 +63,7 @@
                     <button id="dateToggleBtn" class="toggle -date">柔軟な日付設定</button>
                   </div>
                 </div>
-                <div class="calendararea">
+                <div id="calenderArea" class="calendararea">
                   <div class="calendar-form -currentmonth">
                     <div class="calenderheadergroup">
                       <button id="currentMonthPrevBtn" class="movemonthbtn currentmonthprevbtn">‹</button>
@@ -80,6 +80,22 @@
                       <button id="nextMonthNextBtn" class="movemonthbtn nextmonthnextbtn">›</button>
                     </div>
                     <div id="nextMonthCalendar" class="calendar"></div>
+                  </div>
+                </div>
+
+                <div id="flexiblePlanArea" class="flexibleplanarea -hide">
+                  <div id ="lengthOfStayGroup" class="lengthofstaygroup staychoice">
+                    <p>滞在期間を選択してください。</p>
+                    <ul id="lengthOfStayList" class="lengthofstaylist">
+                      <li class="lengthofstay -selected">週末</li>
+                      <li class="lengthofstay">１週間</li>
+                      <li class="lengthofstay">１か月間</li>
+                    </ul>
+                  </div>
+                  <div id="" class="monthofstaygroup staychoice">
+                    <p>ご希望の月を選択してください。</p>
+                    <ul id="monthList" class="monthlist">
+                    </ul>
                   </div>
                 </div>
               </div>

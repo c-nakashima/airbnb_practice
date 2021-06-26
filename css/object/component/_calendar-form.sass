@@ -11,6 +11,7 @@
       width: 100%
       text-align: center
       font-size: 16px
+      font-weight: 600
     >.movemonthbtn
       cursor: pointer
       width: 32px
@@ -21,7 +22,7 @@
         background-color: $COLOR_LIGHTGREY
       &.currentmonthnextbtn
         display: none
-      &.nextmonthprevtbtn
+      &.nextmonthprevbtn
         display: none
   >.calendar
     width: 100%
@@ -34,13 +35,24 @@
             font-size: 12px
             padding-bottom: 8px
           >td
-            width: 47px
-            height: 47px
+            width: 44px
+            height: 44px
             align-items: center
-            line-height: 47px
+            line-height: 44px
             font-size: 14px
+            >.date
+              width: 42px
+              height: 42px
+              border: 2px solid $COLOR_WHITE
+              font-weight: 600
+              &:hover
+                border: 2px solid #666
+                border-radius: 100px
             &.-disabled
               visibility: hidden
             &.-previous
               color: $COLOR_DARKGREY
+              >.date
+                &:hover
+                  border: 2px solid transparent
 

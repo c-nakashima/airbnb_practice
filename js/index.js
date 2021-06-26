@@ -171,11 +171,14 @@ function createCalendar(year, month) {
     for (let j = 0; j < week.length; j++) {
       if (i == 0 && j < startDayOfWeek) {
         //hide previout month date
-        calendar += "<td class='-disabled'>" + (lastMonthEndDate - startDayOfWeek + j + 1) + "</td>";
+        calendar += '<td class="-disabled"><div class="date">' + (lastMonthEndDate - startDayOfWeek + j + 1) + '</div></td>';
+        // calendar += `<td class="-disabled"><div class="date">${(lastMonthEndDate - startDayOfWeek + j + 1)}</div></td>`;
+
       } else if (count >= endDate) {
         //hide next month date
         count++;
-        calendar += "<td class='-disabled'>" + (count - endDate) + "</td>";
+        calendar += '<td class="-disabled"><div class="date">' + (count - endDate) + '</div></td>';
+        // calendar += `<td class="-disabled"><div class="date>${(count - endDate)}</div></td>`;
       } else {
         count++;
         //greyout previous days
@@ -184,14 +187,14 @@ function createCalendar(year, month) {
           || year <= today.getFullYear()
           && month <= (today.getMonth())
           && count < today.getDate()) {
-          calendar += "<td class='-previous'>" + count + "</td>";
+          calendar += `<td class="-previous"><div class="date">${count}</div></td>`;
         } else //get today
           if (year == today.getFullYear()
             && month == (today.getMonth())
             && count == today.getDate()) {
-            calendar += "<td class='-today'>" + count + "</td>";
+            calendar += `<td class="-today"><div class="date">${count}</div></td>`;
           } else {
-            calendar += "<td>" + count + "</td>";
+            calendar += `<td><div class="date">${count}</div></td>`;
           }
       }
     }
@@ -203,12 +206,44 @@ function createCalendar(year, month) {
 //set calendar toggle button
 const calenderToggleBtn = document.getElementById('calenderToggleBtn');
 const dateToggleBtn = document.getElementById('dateToggleBtn');
+//set calender toggle function
+const calenderArea = document.getElementById('calenderArea');
+const flexiblePlanArea = document.getElementById('flexiblePlanArea');
 
 calenderToggleBtn.addEventListener('click',()=>{
   calenderToggleBtn.classList.toggle('-selected');
   dateToggleBtn.classList.toggle('-selected');
+  calenderArea.classList.remove('-hide');
+  flexiblePlanArea.classList.add('-hide');
 })
 dateToggleBtn.addEventListener('click',()=>{
   dateToggleBtn.classList.toggle('-selected');
   calenderToggleBtn.classList.toggle('-selected');
+  calenderArea.classList.add('-hide');
+  flexiblePlanArea.classList.remove('-hide');
 })
+
+//draw lengthofstaylist
+const lengthOfStays = document.getElementsByClassName('lengthofstay');
+Array.from(lengthOfStays).forEach((lengthOfStay)=>{
+  lengthOfStay.addEventListener('click',()=>{
+    lengthOfStay.classList.toggle('-selected');
+  })
+})
+
+//draw monthlist
+const monthList = document.getElementById('monthList');
+const month = new Date().getMonth() + 1;
+
+for(let i=month+1; i<month+7; i++){
+  const li = document.createElement('li');
+  if(i<=month+2){
+    li.classList.add('-selected');    
+  }
+  li.innerHTML = `<img src="/assets/calendar_selected.jpg" alt="カレンダー"><p>${i}月</p>`;
+  li.addEventListener('click',()=>{
+    li.classList.toggle('-selected');
+  })
+  monthList.appendChild(li);
+}
+

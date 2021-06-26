@@ -10,8 +10,6 @@
   &[data-open='false']
     display: none
 #CheckinWindow
-  >.calendararea
-    display: flex
   >.togglebtnarea
     display: flex
     justify-content: center
@@ -27,6 +25,59 @@
         cursor: pointer
         &.-selected
           background-color: $COLOR_WHITE
+  >.calendararea
+    display: flex
+    &.-hide
+      display: none
+  >.flexibleplanarea
+    padding: 0 40px 20px 40px 
+    &.-hide
+      display: none
+    >.staychoice
+      text-align: center
+      >p
+        padding: 24px 8px
+        color: $COLOR_BLACKGREY
+        font-size: 18px
+    >.lengthofstaygroup
+      padding-bottom: 10px
+      >.lengthofstaylist
+        display: flex
+        justify-content: center
+        align-items: center
+        >li
+          padding: 10px 14px
+          margin: 4px
+          border: 1px solid $COLOR_DARKGREY
+          border-radius: 20px
+          &.-selected
+            border: 2px solid $COLOR_BLACK
+            background-color: $COLOR_SELECTED_CALENDAR            
+    >.monthofstaygroup
+
+      >.monthlist
+        display: flex
+        justify-content: space-between
+        >li
+          width: 100px
+          height: 122px
+          display: flex
+          flex-direction: column
+          justify-content: center
+          align-items: center
+          border-radius: 16px
+          // margin: 0 10px
+          border: 1px solid $COLOR_DARKGREY
+          &.-selected
+            border: 2px solid $COLOR_BLACK
+            background-color: $COLOR_SELECTED_CALENDAR
+          >img
+            width: 32px
+            height: 32px
+          >p
+            padding-top: 8px
+            font-size: 12px
+
 
 @media (max-width: 1120px)
   #CheckinWindow
