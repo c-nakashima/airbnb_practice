@@ -80,25 +80,56 @@ input[type=text]:focus {
   align-items: center;
 }
 #header > .container > .rightarea > .host {
+  height: 42px;
+  padding: 0 12px;
   margin-right: 10px;
+  border-radius: 25px;
+  text-align: center;
+  line-height: 42px;
+  font-weight: 600;
+}
+#header > .container > .rightarea > .host:hover {
+  background-color: #F7F7F7;
+  cursor: pointer;
+}
+#header > .container > .rightarea > .lang {
+  width: 42px;
+  height: 42px;
+  border-radius: 20px;
+}
+#header > .container > .rightarea > .lang:hover {
+  background-color: #F7F7F7;
+  cursor: pointer;
 }
 #header > .container > .rightarea > .account {
-  width: 70px;
-  padding: 5px 5px 5px 12px;
+  position: relative;
+  width: 60px;
+  height: 38px;
+  padding: 2px 5px 0px 12px;
   margin-left: 10px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background-color: #FFFFFF;
-  border-radius: 25px;
+  border-radius: 30px;
+  border: 1px solid #EBEBEB;
+}
+#header > .container > .rightarea > .account:hover {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 1px 3px 1px;
+  transition-duration: 0.4s;
 }
 #header > .container > .rightarea > .account > .menu {
   width: 16px;
   height: 14px;
-  padding-right: 10px;
+  padding-left: 4px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  color: #717171;
+}
+#header > .container > .rightarea > .account > img {
+  color: yellow;
 }
 #header::after {
   content: "";
@@ -129,9 +160,32 @@ input[type=text]:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+#header > .container > .conditions .condition::after {
+  content: "";
+  width: 1px;
+  height: 10px;
+  border-bottom: 1px solid transparent;
 }
 #header > .container > .conditions .condition:hover {
   cursor: pointer;
+  opacity: 0.8;
+}
+#header > .container > .conditions .condition:hover::after {
+  transform: scaleX(10);
+  border-bottom: 2px solid #222222;
+  transition-duration: 0.4s;
+}
+#header > .container > .conditions .condition.-selected::after {
+  content: "";
+  width: 18px;
+  height: 10px;
+  border-bottom: 2px solid #222222;
+}
+#header > .container > .conditions .condition.-selected:hover::after {
+  transform: scaleX(1);
+  width: 18px;
 }
 #header > .container > .search-form {
   position: absolute;
@@ -1335,4 +1389,71 @@ input[type=text]:focus {
 #PeopleWindow > ul > li > .peoplenumcounter > .counter.-disabled {
   color: #EBEBEB;
   border: 1px solid #EBEBEB;
+}
+
+#AccountWindow {
+  width: 240px;
+  padding: 12px 0;
+  position: absolute;
+  top: 55px;
+  right: 0px;
+}
+#AccountWindow[data-open=true] {
+  display: block;
+}
+#AccountWindow[data-open=false] {
+  display: none;
+}
+#AccountWindow > .listgroup > li {
+  padding: 12px 20px 12px 20px;
+}
+#AccountWindow > .listgroup > li:hover {
+  cursor: pointer;
+  background-color: #F7F7F7;
+}
+#AccountWindow > .listgroup > li.register {
+  font-weight: 600;
+}
+#AccountWindow > hr {
+  width: 100%;
+  height: 0.5px;
+  margin: 8px 0px;
+  border: 0;
+  background-color: #EBEBEB;
+}
+
+#LocationWindow {
+  position: absolute;
+  top: 80px;
+  left: 0px;
+  width: 400px;
+}
+#LocationWindow[data-open=true] {
+  display: block;
+}
+#LocationWindow[data-open=false] {
+  display: none;
+}
+#LocationWindow > ul > li {
+  display: flex;
+  align-items: center;
+  padding: 4px 20px;
+}
+#LocationWindow > ul > li:hover {
+  background-color: #EBEBEB;
+}
+#LocationWindow > ul > li > img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+#LocationWindow > ul > li > p {
+  font-size: 16px;
+}
+
+@media (max-width: 750px) {
+  #LocationWindow {
+    display: none !important;
+  }
 }

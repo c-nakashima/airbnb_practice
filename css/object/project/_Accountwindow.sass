@@ -1,0 +1,25 @@
+#AccountWindow
+  width: 240px
+  padding: 12px 0
+  position: absolute
+  top: 55px
+  right: 0px
+  &[data-open='true']
+    display: block
+  &[data-open='false']
+    display: none
+  >.listgroup
+    >li
+      padding: 12px 20px 12px 20px 
+      &:hover
+        cursor: pointer
+        background-color: $COLOR_LIGHTGREY
+      &.register
+        font-weight: 600
+    &.accountlist
+  >hr
+    width: 100%
+    height: .5px
+    margin: 8px 0px
+    border: 0
+    background-color: $COLOR_GREY

@@ -2,6 +2,7 @@
 const windowHeight = $(window).height();
 const windowWidth = $(window).width();
 const header = document.getElementById('header');
+const accountBtn = document.getElementById('accountBtn');
 
 const searchForm = document.getElementById('searchForm');
 const extendedFormLists = document.getElementsByClassName('extendedformlist');
@@ -19,6 +20,7 @@ const searchFormLines = document.getElementsByClassName('line');
 const locationWindow = document.getElementById('LocationWindow');
 const checkinWindow = document.getElementById('CheckinWindow');
 const peopleWindow = document.getElementById('PeopleWindow');
+const accountWindow = document.getElementById('AccountWindow');
 
 // header scroll event
 $(window).scroll(function () {
@@ -31,6 +33,7 @@ setClickedFormStyle();
 toggleFormWindow('#locationForm', locationWindow);
 toggleCheckinFormWindow();
 toggleFormWindow('#peopleForm', peopleWindow);
+toggleFormWindow('#accountBtn', accountWindow);
 
 
 //set search form function ==============================================
@@ -132,7 +135,6 @@ function toggleFocusedStatus() {
     }
   })
 }
-
 toggleFocusedStatus()
 
 //open / close popup window
@@ -356,3 +358,8 @@ Array.from(PeoplenumCounters).forEach(PeoplenumCounter => {
   peopleNumCount = 0;
   checkPeopleNumCount();
 })
+
+// //set account open/close function ==============================================
+// accountBtn.addEventListener('click',()=>{
+//   accountBtn.
+// })

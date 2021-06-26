@@ -4,7 +4,6 @@
   box-sizing: border-box
   left: 0
   right: 0
-  // top: 0
   z-index: 10
   font-size: $FONTSIZE_MENU
   &.-bgwhite
@@ -21,23 +20,49 @@
       display: flex
       align-items: center
       >.host
+        height: 42px
+        padding: 0 12px
         margin-right: 10px
+        border-radius: 25px
+        text-align: center
+        line-height: 42px
+        font-weight: 600
+        &:hover
+          background-color: $COLOR_LIGHTGREY
+          cursor: pointer
+      >.lang
+        width: 42px
+        height: 42px
+        border-radius: 20px
+        &:hover
+          background-color: $COLOR_LIGHTGREY
+          cursor: pointer
       >.account
-        width: 70px
-        padding: 5px 5px 5px 12px
+        position: relative
+        width: 60px
+        height: 38px
+        padding: 2px 5px 0px 12px
         margin-left: 10px
         display: flex
         align-items: center
-        justify-content: center
+        justify-content: space-between
         background-color: $COLOR_WHITE
-        border-radius: 25px
+        border-radius: 30px
+        border: 1px solid $COLOR_GREY
+        &:hover
+          cursor: pointer
+          box-shadow: $SHADOW_SHRINK
+          transition-duration: .4s
         >.menu
           width: 16px
           height: 14px
-          padding-right: 10px
+          padding-left: 4px
           display: flex
           flex-direction: column
           justify-content: space-between
+          color: $COLOR_BLACKGREY
+        >img
+          color: yellow
   &::after
     content: ""
     width: 100%
@@ -63,8 +88,31 @@
         display: flex
         justify-content: center
         align-items: center
+        flex-direction: column
+        &::after
+          content: ""
+          width: 1px
+          height: 10px
+          border-bottom: 1px solid transparent
         &:hover
           cursor: pointer
+          opacity: .8
+        &:hover::after
+          transform: scaleX(10)
+          border-bottom: 2px solid $COLOR_BLACK
+          transition-duration: .4s
+        &.-selected
+          &::after
+            content: ""
+            width: 18px
+            height: 10px
+            border-bottom: 2px solid $COLOR_BLACK 
+          &:hover::after
+            transform: scaleX(1)
+            width: 18px
+
+
+
     >.search-form
       position: absolute
       top: 60px
